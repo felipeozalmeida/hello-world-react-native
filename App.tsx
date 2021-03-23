@@ -66,6 +66,7 @@ const App = () => {
               returnKeyType="next"
               maxLength={255}
               autoCompleteType="password"
+              secureTextEntry
             />
           </View>
           <View style={styles.inputRow}>
