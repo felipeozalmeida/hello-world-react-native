@@ -40,6 +40,7 @@ const App = () => {
               placeholder="Ex.: 1"
               defaultValue={id}
               onChangeText={(newId) => setId(newId)}
+              returnKeyType="next"
               keyboardType="numeric"
             />
           </View>
@@ -50,6 +51,7 @@ const App = () => {
               placeholder="Ex.: alex@contoso.com"
               defaultValue={email}
               onChangeText={(newEmail) => setEmail(newEmail)}
+              returnKeyType="next"
               maxLength={255}
               autoCompleteType="email"
               keyboardType="email-address"
@@ -61,6 +63,7 @@ const App = () => {
               style={styles.inputField}
               defaultValue={password}
               onChangeText={(newPassword) => setPassword(newPassword)}
+              returnKeyType="next"
               maxLength={255}
               autoCompleteType="password"
             />
@@ -72,6 +75,7 @@ const App = () => {
               placeholder="Ex.: Admin"
               defaultValue={type}
               onChangeText={(newType) => setType(newType)}
+              returnKeyType="next"
               maxLength={255}
             />
           </View>
@@ -82,6 +86,7 @@ const App = () => {
               placeholder="Ex.: Active"
               defaultValue={status}
               onChangeText={(newStatus) => setStatus(newStatus)}
+              returnKeyType="done"
               maxLength={255}
             />
           </View>
