@@ -33,48 +33,50 @@ const App = () => {
       <ScrollView style={styles.body}>
         <Text style={styles.title}>Hello World</Text>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>ID</Text>
-          <TextInput
-            style={styles.inputField}
-            placeholder="Ex.: 1"
-            defaultValue={id}
-            onChangeText={(newId) => setId(newId)}
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>Email</Text>
-          <TextInput
-            style={styles.inputField}
-            placeholder="Ex.: alex@contoso.com"
-            defaultValue={email}
-            onChangeText={(newEmail) => setEmail(newEmail)}
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>Password</Text>
-          <TextInput
-            style={styles.inputField}
-            defaultValue={password}
-            onChangeText={(newPassword) => setPassword(newPassword)}
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>Type</Text>
-          <TextInput
-            style={styles.inputField}
-            placeholder="Ex.: Admin"
-            defaultValue={type}
-            onChangeText={(newType) => setType(newType)}
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>Status</Text>
-          <TextInput
-            style={styles.inputField}
-            placeholder="Ex.: Active"
-            defaultValue={status}
-            onChangeText={(newStatus) => setStatus(newStatus)}
-          />
+          <View style={styles.inputRow}>
+            <Text style={styles.inputLabel}>ID</Text>
+            <TextInput
+              style={styles.inputField}
+              placeholder="Ex.: 1"
+              defaultValue={id}
+              onChangeText={(newId) => setId(newId)}
+            />
+          </View>
+          <View style={styles.inputRow}>
+            <Text style={styles.inputLabel}>Email</Text>
+            <TextInput
+              style={styles.inputField}
+              placeholder="Ex.: alex@contoso.com"
+              defaultValue={email}
+              onChangeText={(newEmail) => setEmail(newEmail)}
+            />
+          </View>
+          <View style={styles.inputRow}>
+            <Text style={styles.inputLabel}>Password</Text>
+            <TextInput
+              style={styles.inputField}
+              defaultValue={password}
+              onChangeText={(newPassword) => setPassword(newPassword)}
+            />
+          </View>
+          <View style={styles.inputRow}>
+            <Text style={styles.inputLabel}>Type</Text>
+            <TextInput
+              style={styles.inputField}
+              placeholder="Ex.: Admin"
+              defaultValue={type}
+              onChangeText={(newType) => setType(newType)}
+            />
+          </View>
+          <View style={styles.inputRowLast}>
+            <Text style={styles.inputLabel}>Status</Text>
+            <TextInput
+              style={styles.inputField}
+              placeholder="Ex.: Active"
+              defaultValue={status}
+              onChangeText={(newStatus) => setStatus(newStatus)}
+            />
+          </View>
         </View>
         <View style={styles.buttonContainer}>
           <Button

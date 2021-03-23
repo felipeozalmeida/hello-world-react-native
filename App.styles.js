@@ -1,16 +1,21 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  body: {
+    padding: 16,
+  },
   title: {
-    marginVertical: 16,
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: '600',
   },
-  body: {
-    paddingHorizontal: 16,
-  },
   inputContainer: {
+    marginVertical: 16,
+  },
+  inputRow: {
     marginBottom: 8,
+  },
+  inputRowLast: {
+    marginBottom: 0,
   },
   inputLabel: {
     marginBottom: 8,
@@ -23,7 +28,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   buttonContainer: {
-    marginVertical: 16,
+    marginVertical: 0,
   },
 });
 
