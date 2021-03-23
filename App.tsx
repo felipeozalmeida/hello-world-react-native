@@ -40,6 +40,7 @@ const App = () => {
               placeholder="Ex.: 1"
               defaultValue={id}
               onChangeText={(newId) => setId(newId)}
+              keyboardType="numeric"
             />
           </View>
           <View style={styles.inputRow}>
@@ -50,6 +51,7 @@ const App = () => {
               defaultValue={email}
               onChangeText={(newEmail) => setEmail(newEmail)}
               autoCompleteType="email"
+              keyboardType="email-address"
             />
           </View>
           <View style={styles.inputRow}>
