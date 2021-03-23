@@ -17,6 +17,7 @@ import {
   Button,
   Alert,
   SafeAreaView,
+  StatusBar,
 } from 'react-native';
 
 import styles from './App.styles';
@@ -30,6 +31,7 @@ const App = () => {
 
   return (
     <SafeAreaView>
+      <StatusBar barStyle="light-content" />
       <ScrollView style={styles.body}>
         <Text style={styles.title}>Hello World</Text>
         <View style={styles.inputContainer}>
