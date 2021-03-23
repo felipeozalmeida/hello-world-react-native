@@ -49,6 +49,7 @@ const App = () => {
               placeholder="Ex.: alex@contoso.com"
               defaultValue={email}
               onChangeText={(newEmail) => setEmail(newEmail)}
+              autoCompleteType="email"
             />
           </View>
           <View style={styles.inputRow}>
@@ -57,6 +58,7 @@ const App = () => {
               style={styles.inputField}
               defaultValue={password}
               onChangeText={(newPassword) => setPassword(newPassword)}
+              autoCompleteType="password"
             />
           </View>
           <View style={styles.inputRow}>
