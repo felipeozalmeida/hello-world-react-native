@@ -50,6 +50,7 @@ const App = () => {
               placeholder="Ex.: alex@contoso.com"
               defaultValue={email}
               onChangeText={(newEmail) => setEmail(newEmail)}
+              maxLength={255}
               autoCompleteType="email"
               keyboardType="email-address"
             />
@@ -60,6 +61,7 @@ const App = () => {
               style={styles.inputField}
               defaultValue={password}
               onChangeText={(newPassword) => setPassword(newPassword)}
+              maxLength={255}
               autoCompleteType="password"
             />
           </View>
@@ -70,6 +72,7 @@ const App = () => {
               placeholder="Ex.: Admin"
               defaultValue={type}
               onChangeText={(newType) => setType(newType)}
+              maxLength={255}
             />
           </View>
           <View style={styles.inputRowLast}>
@@ -79,6 +82,7 @@ const App = () => {
               placeholder="Ex.: Active"
               defaultValue={status}
               onChangeText={(newStatus) => setStatus(newStatus)}
+              maxLength={255}
             />
           </View>
         </View>
