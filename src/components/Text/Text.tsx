@@ -5,7 +5,7 @@ import type {
   TextStyle as RNTextStyle,
 } from 'react-native';
 
-type VariantNames = 'default' | 'header';
+type VariantNames = 'default' | 'header' | 'label';
 
 const baseStyle: RNTextStyle = {
   fontSize: 14,
@@ -17,6 +17,10 @@ const variants: Record<VariantNames, RNTextStyle> = {
     ...baseStyle,
     fontSize: 24,
     fontWeight: '600',
+  },
+  label: {
+    ...baseStyle,
+    marginBottom: 8,
   },
 };
 

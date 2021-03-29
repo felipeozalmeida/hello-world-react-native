@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, TextInput, Button, Alert, StyleSheet} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
-import {Screen, Text} from '../../components';
+import {InputContainer, InputRow, Screen, Text} from '../../components';
 
 export const UserDetailScreen = () => {
   const [id, setId] = useState('');
@@ -15,9 +15,9 @@ export const UserDetailScreen = () => {
   return (
     <Screen scroll>
       <Text variant="header">Hello World</Text>
-      <View style={styles.inputContainer}>
-        <View style={styles.inputRow}>
-          <Text style={styles.inputLabel}>ID</Text>
+      <InputContainer>
+        <InputRow>
+          <Text variant="label">ID</Text>
           <TextInput
             style={styles.inputField}
             placeholder="Ex.: 1"
@@ -26,9 +26,9 @@ export const UserDetailScreen = () => {
             returnKeyType="next"
             keyboardType="numeric"
           />
-        </View>
-        <View style={styles.inputRow}>
-          <Text style={styles.inputLabel}>Email</Text>
+        </InputRow>
+        <InputRow>
+          <Text variant="label">Email</Text>
           <TextInput
             style={styles.inputField}
             placeholder="Ex.: alex@contoso.com"
@@ -39,9 +39,9 @@ export const UserDetailScreen = () => {
             autoCompleteType="email"
             keyboardType="email-address"
           />
-        </View>
-        <View style={styles.inputRow}>
-          <Text style={styles.inputLabel}>Password</Text>
+        </InputRow>
+        <InputRow>
+          <Text variant="label">Password</Text>
           <TextInput
             style={styles.inputField}
             defaultValue={password}
@@ -51,9 +51,9 @@ export const UserDetailScreen = () => {
             autoCompleteType="password"
             secureTextEntry
           />
-        </View>
-        <View style={styles.inputRow}>
-          <Text style={styles.inputLabel}>Language @react-native-picker</Text>
+        </InputRow>
+        <InputRow>
+          <Text variant="label">Language @react-native-picker</Text>
           <Picker
             style={styles.inputField}
             selectedValue={selectedLanguage}
@@ -61,9 +61,9 @@ export const UserDetailScreen = () => {
             <Picker.Item label="Java" value="java" />
             <Picker.Item label="JavaScript" value="js" />
           </Picker>
-        </View>
-        <View style={styles.inputRow}>
-          <Text style={styles.inputLabel}>Type</Text>
+        </InputRow>
+        <InputRow>
+          <Text variant="label">Type</Text>
           <TextInput
             style={styles.inputField}
             placeholder="Ex.: Admin"
@@ -72,9 +72,9 @@ export const UserDetailScreen = () => {
             returnKeyType="next"
             maxLength={255}
           />
-        </View>
-        <View style={styles.inputRowLast}>
-          <Text style={styles.inputLabel}>Status</Text>
+        </InputRow>
+        <InputRow last>
+          <Text variant="label">Status</Text>
           <TextInput
             style={styles.inputField}
             placeholder="Ex.: Active"
@@ -83,8 +83,8 @@ export const UserDetailScreen = () => {
             returnKeyType="done"
             maxLength={255}
           />
-        </View>
-      </View>
+        </InputRow>
+      </InputContainer>
       <View style={styles.buttonContainer}>
         <Button
           title="Submit"
@@ -96,18 +96,6 @@ export const UserDetailScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    marginVertical: 16,
-  },
-  inputRow: {
-    marginBottom: 8,
-  },
-  inputRowLast: {
-    marginBottom: 0,
-  },
-  inputLabel: {
-    marginBottom: 8,
-  },
   inputField: {
     paddingHorizontal: 8,
     borderWidth: 1,
