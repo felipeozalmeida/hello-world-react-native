@@ -7,114 +7,44 @@
  *
  * @format
  */
+import 'react-native-gesture-handler';
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import type {StackNavigationOptions} from '@react-navigation/stack';
 
-import React, {useState} from 'react';
-import {
-  Text,
-  ScrollView,
-  View,
-  TextInput,
-  Button,
-  Alert,
-  SafeAreaView,
-  StatusBar,
-} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import {HomeScreen, UserDetailScreen} from './screens';
+import type {
+  RootStackParamList,
+  UserDetailScreenNavigationProps,
+} from './@types';
 
-import styles from './App.styles';
+const Stack = createStackNavigator<RootStackParamList>();
 
-const App = () => {
-  const [id, setId] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [type, setType] = useState('');
-  const [status, setStatus] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState();
+export const App = () => {
+  const getUserDetailScreenOptions = ({
+    route,
+  }: UserDetailScreenNavigationProps): StackNavigationOptions => {
+    if (route.params?.userId) {
+      return {title: 'User Detail'};
+    }
+    return {title: 'Create User'};
+  };
 
   return (
-    <SafeAreaView>
-      <StatusBar barStyle="light-content" />
-      <ScrollView style={styles.body}>
-        <Text style={styles.title}>Hello World</Text>
-        <View style={styles.inputContainer}>
-          <View style={styles.inputRow}>
-            <Text style={styles.inputLabel}>ID</Text>
-            <TextInput
-              style={styles.inputField}
-              placeholder="Ex.: 1"
-              defaultValue={id}
-              onChangeText={(newId) => setId(newId)}
-              returnKeyType="next"
-              keyboardType="numeric"
-            />
-          </View>
-          <View style={styles.inputRow}>
-            <Text style={styles.inputLabel}>Email</Text>
-            <TextInput
-              style={styles.inputField}
-              placeholder="Ex.: alex@contoso.com"
-              defaultValue={email}
-              onChangeText={(newEmail) => setEmail(newEmail)}
-              returnKeyType="next"
-              maxLength={255}
-              autoCompleteType="email"
-              keyboardType="email-address"
-            />
-          </View>
-          <View style={styles.inputRow}>
-            <Text style={styles.inputLabel}>Password</Text>
-            <TextInput
-              style={styles.inputField}
-              defaultValue={password}
-              onChangeText={(newPassword) => setPassword(newPassword)}
-              returnKeyType="next"
-              maxLength={255}
-              autoCompleteType="password"
-              secureTextEntry
-            />
-          </View>
-          <View style={styles.inputRow}>
-            <Text style={styles.inputLabel}>Language @react-native-picker</Text>
-            <Picker
-              style={styles.inputField}
-              selectedValue={selectedLanguage}
-              onValueChange={(itemValue) => setSelectedLanguage(itemValue)}>
-              <Picker.Item label="Java" value="java" />
-              <Picker.Item label="JavaScript" value="js" />
-            </Picker>
-          </View>
-          <View style={styles.inputRow}>
-            <Text style={styles.inputLabel}>Type</Text>
-            <TextInput
-              style={styles.inputField}
-              placeholder="Ex.: Admin"
-              defaultValue={type}
-              onChangeText={(newType) => setType(newType)}
-              returnKeyType="next"
-              maxLength={255}
-            />
-          </View>
-          <View style={styles.inputRowLast}>
-            <Text style={styles.inputLabel}>Status</Text>
-            <TextInput
-              style={styles.inputField}
-              placeholder="Ex.: Active"
-              defaultValue={status}
-              onChangeText={(newStatus) => setStatus(newStatus)}
-              returnKeyType="done"
-              maxLength={255}
-            />
-          </View>
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            title="Submit"
-            onPress={() => Alert.alert('Success', 'Form sent successfully.')}
-          />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{title: 'Hello World'}}
+        />
+        <Stack.Screen
+          name="UserDetail"
+          component={UserDetailScreen}
+          options={getUserDetailScreenOptions}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-export default App;
