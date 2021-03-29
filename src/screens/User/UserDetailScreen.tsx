@@ -1,14 +1,8 @@
 import React, {useState} from 'react';
-import {
-  Text,
-  ScrollView,
-  View,
-  TextInput,
-  Button,
-  Alert,
-  StyleSheet,
-} from 'react-native';
+import {Text, View, TextInput, Button, Alert, StyleSheet} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
+
+import {Screen} from '../../components';
 
 export const UserDetailScreen = () => {
   const [id, setId] = useState('');
@@ -19,7 +13,7 @@ export const UserDetailScreen = () => {
   const [selectedLanguage, setSelectedLanguage] = useState();
 
   return (
-    <ScrollView contentContainerStyle={styles.body}>
+    <Screen scroll>
       <Text style={styles.title}>Hello World</Text>
       <View style={styles.inputContainer}>
         <View style={styles.inputRow}>
@@ -97,14 +91,11 @@ export const UserDetailScreen = () => {
           onPress={() => Alert.alert('Success', 'Form sent successfully.')}
         />
       </View>
-    </ScrollView>
+    </Screen>
   );
 };
 
 const styles = StyleSheet.create({
-  body: {
-    padding: 16,
-  },
   title: {
     fontSize: 24,
     fontWeight: '600',
