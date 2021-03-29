@@ -1,8 +1,14 @@
 import React, {useState} from 'react';
-import {View, TextInput, Button, Alert, StyleSheet} from 'react-native';
+import {View, Button, Alert, StyleSheet} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
-import {InputContainer, InputRow, Screen, Text} from '../../components';
+import {
+  InputContainer,
+  InputRow,
+  Screen,
+  Text,
+  TextInput,
+} from '../../components';
 
 export const UserDetailScreen = () => {
   const [id, setId] = useState('');
@@ -19,7 +25,6 @@ export const UserDetailScreen = () => {
         <InputRow>
           <Text variant="label">ID</Text>
           <TextInput
-            style={styles.inputField}
             placeholder="Ex.: 1"
             defaultValue={id}
             onChangeText={(newId) => setId(newId)}
@@ -30,7 +35,6 @@ export const UserDetailScreen = () => {
         <InputRow>
           <Text variant="label">Email</Text>
           <TextInput
-            style={styles.inputField}
             placeholder="Ex.: alex@contoso.com"
             defaultValue={email}
             onChangeText={(newEmail) => setEmail(newEmail)}
@@ -43,7 +47,6 @@ export const UserDetailScreen = () => {
         <InputRow>
           <Text variant="label">Password</Text>
           <TextInput
-            style={styles.inputField}
             defaultValue={password}
             onChangeText={(newPassword) => setPassword(newPassword)}
             returnKeyType="next"
@@ -55,7 +58,6 @@ export const UserDetailScreen = () => {
         <InputRow>
           <Text variant="label">Language @react-native-picker</Text>
           <Picker
-            style={styles.inputField}
             selectedValue={selectedLanguage}
             onValueChange={(itemValue) => setSelectedLanguage(itemValue)}>
             <Picker.Item label="Java" value="java" />
@@ -65,7 +67,6 @@ export const UserDetailScreen = () => {
         <InputRow>
           <Text variant="label">Type</Text>
           <TextInput
-            style={styles.inputField}
             placeholder="Ex.: Admin"
             defaultValue={type}
             onChangeText={(newType) => setType(newType)}
@@ -76,7 +77,6 @@ export const UserDetailScreen = () => {
         <InputRow last>
           <Text variant="label">Status</Text>
           <TextInput
-            style={styles.inputField}
             placeholder="Ex.: Active"
             defaultValue={status}
             onChangeText={(newStatus) => setStatus(newStatus)}
@@ -96,13 +96,6 @@ export const UserDetailScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  inputField: {
-    paddingHorizontal: 8,
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: '#000',
-    borderRadius: 4,
-  },
   buttonContainer: {
     marginVertical: 0,
   },
