@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {Text, View, TextInput, Button, Alert, StyleSheet} from 'react-native';
+import {View, TextInput, Button, Alert, StyleSheet} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
-import {Screen} from '../../components';
+import {Screen, Text} from '../../components';
 
 export const UserDetailScreen = () => {
   const [id, setId] = useState('');
@@ -14,7 +14,7 @@ export const UserDetailScreen = () => {
 
   return (
     <Screen scroll>
-      <Text style={styles.title}>Hello World</Text>
+      <Text variant="header">Hello World</Text>
       <View style={styles.inputContainer}>
         <View style={styles.inputRow}>
           <Text style={styles.inputLabel}>ID</Text>
@@ -96,10 +96,6 @@ export const UserDetailScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
   inputContainer: {
     marginVertical: 16,
   },
