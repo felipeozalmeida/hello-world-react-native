@@ -19,6 +19,7 @@ import {
   SafeAreaView,
   StatusBar,
 } from 'react-native';
+import {Picker} from '@react-native-picker/picker';
 
 import styles from './App.styles';
 
@@ -28,6 +29,7 @@ const App = () => {
   const [password, setPassword] = useState('');
   const [type, setType] = useState('');
   const [status, setStatus] = useState('');
+  const [selectedLanguage, setSelectedLanguage] = useState();
 
   return (
     <SafeAreaView>
@@ -70,6 +72,16 @@ const App = () => {
               autoCompleteType="password"
               secureTextEntry
             />
+          </View>
+          <View style={styles.inputRow}>
+            <Text style={styles.inputLabel}>Language @react-native-picker</Text>
+            <Picker
+              style={styles.inputField}
+              selectedValue={selectedLanguage}
+              onValueChange={(itemValue) => setSelectedLanguage(itemValue)}>
+              <Picker.Item label="Java" value="java" />
+              <Picker.Item label="JavaScript" value="js" />
+            </Picker>
           </View>
           <View style={styles.inputRow}>
             <Text style={styles.inputLabel}>Type</Text>
