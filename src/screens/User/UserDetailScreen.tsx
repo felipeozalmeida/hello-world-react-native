@@ -89,18 +89,10 @@ export const UserDetailScreen = () => {
           />
         </InputRow>
       </InputContainer>
-      <View style={styles.buttonContainer}>
-        <Button
-          title="Submit"
-          onPress={() => Alert.alert('Success', 'Form sent successfully.')}
-        />
-      </View>
+      <Button
+        title="Submit"
+        onPress={() => Alert.alert('Success', 'Form sent successfully.')}
+      />
     </Screen>
   );
 };
-
-const styles = StyleSheet.create({
-  buttonContainer: {
-    marginVertical: 0,
-  },
-});
