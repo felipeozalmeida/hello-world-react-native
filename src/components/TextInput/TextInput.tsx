@@ -1,5 +1,6 @@
 import React from 'react';
 import {TextInput as RNTextInput} from 'react-native';
+import type {PropsWithChildren, Ref} from 'react';
 import type {
   TextStyle as RNTextStyle,
   TextInputProps as RNTextInputProps,
@@ -13,12 +14,12 @@ const style: RNTextStyle = {
   borderRadius: 4,
 };
 
-type Props = RNTextInputProps & {
-  children?: React.ReactNode;
+type Props = PropsWithChildren<RNTextInputProps> & {
+  componentRef?: Ref<RNTextInput>;
 };
 
-export const TextInput = ({children, ...rest}: Props) => (
-  <RNTextInput {...rest} style={style}>
-    {children}
+export const TextInput = (props: Props) => (
+  <RNTextInput {...props} style={style} ref={props.componentRef}>
+    {props.children}
   </RNTextInput>
 );

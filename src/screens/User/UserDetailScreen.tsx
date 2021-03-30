@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {View, Button, Alert, StyleSheet} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
+import type {TextInput as RNTextInput} from 'react-native';
 
 import {
   InputContainer,
@@ -18,6 +19,13 @@ export const UserDetailScreen = () => {
   const [status, setStatus] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState();
 
+  const refs = {
+    email: useRef<RNTextInput>(null),
+    password: useRef<RNTextInput>(null),
+    type: useRef<RNTextInput>(null),
+    status: useRef<RNTextInput>(null),
+  };
+
   return (
     <Screen scroll>
       <Text variant="header">Hello World</Text>
@@ -30,11 +38,14 @@ export const UserDetailScreen = () => {
             onChangeText={(newId) => setId(newId)}
             returnKeyType="next"
             keyboardType="numeric"
+            blurOnSubmit={false}
+            onSubmitEditing={() => refs.email.current?.focus()}
           />
         </InputRow>
         <InputRow>
           <Text variant="label">Email</Text>
           <TextInput
+            componentRef={refs.email}
             placeholder="Ex.: alex@contoso.com"
             defaultValue={email}
             onChangeText={(newEmail) => setEmail(newEmail)}
@@ -42,11 +53,14 @@ export const UserDetailScreen = () => {
             maxLength={255}
             autoCompleteType="email"
             keyboardType="email-address"
+            blurOnSubmit={false}
+            onSubmitEditing={() => refs.password.current?.focus()}
           />
         </InputRow>
         <InputRow>
           <Text variant="label">Password</Text>
           <TextInput
+            componentRef={refs.password}
             defaultValue={password}
             onChangeText={(newPassword) => setPassword(newPassword)}
             returnKeyType="next"
@@ -67,16 +81,20 @@ export const UserDetailScreen = () => {
         <InputRow>
           <Text variant="label">Type</Text>
           <TextInput
+            componentRef={refs.type}
             placeholder="Ex.: Admin"
             defaultValue={type}
             onChangeText={(newType) => setType(newType)}
             returnKeyType="next"
             maxLength={255}
+            blurOnSubmit={false}
+            onSubmitEditing={() => refs.status.current?.focus()}
           />
         </InputRow>
         <InputRow last>
           <Text variant="label">Status</Text>
           <TextInput
+            componentRef={refs.status}
             placeholder="Ex.: Active"
             defaultValue={status}
             onChangeText={(newStatus) => setStatus(newStatus)}
