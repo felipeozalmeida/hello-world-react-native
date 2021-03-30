@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import {View, Button, Alert, StyleSheet} from 'react-native';
+import {Button, Alert} from 'react-native';
 import type {TextInput as RNTextInput} from 'react-native';
 
 import {
