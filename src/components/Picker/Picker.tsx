@@ -1,23 +1,30 @@
 import React from 'react';
-import {View} from 'react-native';
-import {Picker as RNPicker} from '@react-native-picker/picker';
+import RNPicker from 'react-native-picker-select';
 import type {PropsWithChildren} from 'react';
-import type {ViewStyle} from 'react-native';
-import type {PickerProps as RNPickerProps} from '@react-native-picker/picker/typings/Picker';
+import type {TextStyle as RNTextStyle} from 'react-native';
+import type {
+  PickerSelectProps as RNPickerProps,
+  PickerStyle as RNPickerStyle,
+} from 'react-native-picker-select';
 
-const rootStyle: ViewStyle = {
+const inputStyle: RNTextStyle = {
+  paddingHorizontal: 8,
   borderWidth: 1,
   borderStyle: 'solid',
   borderColor: '#000',
   borderRadius: 4,
+  color: '#000',
+};
+
+const rootStyle: RNPickerStyle = {
+  inputIOS: inputStyle,
+  inputAndroid: inputStyle,
 };
 
 const _Picker = (props: PropsWithChildren<RNPickerProps>) => (
-  <View style={rootStyle}>
-    <RNPicker {...props}>{props.children}</RNPicker>
-  </View>
+  <RNPicker useNativeAndroidPickerStyle={false} style={rootStyle} {...props}>
+    {props.children}
+  </RNPicker>
 );
-
-_Picker.Item = RNPicker.Item;
 
 export const Picker = _Picker;

@@ -17,7 +17,7 @@ export const UserDetailScreen = () => {
   const [password, setPassword] = useState('');
   const [type, setType] = useState('');
   const [status, setStatus] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState(0);
+  const [selectedLanguage, setSelectedLanguage] = useState('');
 
   const refs = {
     email: useRef<RNTextInput>(null),
@@ -72,14 +72,13 @@ export const UserDetailScreen = () => {
         <InputRow>
           <Text variant="label">Language @react-native-picker</Text>
           <Picker
-            selectedValue={selectedLanguage}
-            onValueChange={(itemValue) =>
-              setSelectedLanguage(Number(itemValue))
-            }>
-            <Picker.Item label="Select an option" value={0} />
-            <Picker.Item label="Java" value={1} />
-            <Picker.Item label="JavaScript" value={2} />
-          </Picker>
+            value={selectedLanguage}
+            items={[
+              {label: 'Java', value: 1},
+              {label: 'Javascript', value: 2},
+            ]}
+            onValueChange={(itemValue) => setSelectedLanguage(itemValue)}
+          />
         </InputRow>
         <InputRow>
           <Text variant="label">Type</Text>
