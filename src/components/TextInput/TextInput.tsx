@@ -23,3 +23,5 @@ export const TextInput = (props: Props) => (
     {props.children}
   </RNTextInput>
 );
+
+export type TextInputRef = RNTextInput;

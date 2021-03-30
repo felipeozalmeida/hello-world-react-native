@@ -1,6 +1,5 @@
 import React, {useRef, useState} from 'react';
 import {Button, Alert} from 'react-native';
-import type {TextInput as RNTextInput} from 'react-native';
 
 import {
   InputContainer,
@@ -10,6 +9,7 @@ import {
   TextInput,
   Picker,
 } from '../../components';
+import type {TextInputRef} from '../../components';
 
 export const UserDetailScreen = () => {
   const [id, setId] = useState('');
@@ -19,8 +19,8 @@ export const UserDetailScreen = () => {
   const [status, setStatus] = useState('');
 
   const refs = {
-    email: useRef<RNTextInput>(null),
-    password: useRef<RNTextInput>(null),
+    email: useRef<TextInputRef>(null),
+    password: useRef<TextInputRef>(null),
   };
 
   return (
