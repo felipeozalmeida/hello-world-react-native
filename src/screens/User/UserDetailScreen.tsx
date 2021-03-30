@@ -17,13 +17,10 @@ export const UserDetailScreen = () => {
   const [password, setPassword] = useState('');
   const [type, setType] = useState('');
   const [status, setStatus] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState('');
 
   const refs = {
     email: useRef<RNTextInput>(null),
     password: useRef<RNTextInput>(null),
-    type: useRef<RNTextInput>(null),
-    status: useRef<RNTextInput>(null),
   };
 
   return (
@@ -70,38 +67,25 @@ export const UserDetailScreen = () => {
           />
         </InputRow>
         <InputRow>
-          <Text variant="label">Language @react-native-picker</Text>
-          <Picker
-            value={selectedLanguage}
-            items={[
-              {label: 'Java', value: 1},
-              {label: 'Javascript', value: 2},
-            ]}
-            onValueChange={(itemValue) => setSelectedLanguage(itemValue)}
-          />
-        </InputRow>
-        <InputRow>
           <Text variant="label">Type</Text>
-          <TextInput
-            componentRef={refs.type}
-            placeholder="Ex.: Admin"
-            defaultValue={type}
-            onChangeText={(newType) => setType(newType)}
-            returnKeyType="next"
-            maxLength={255}
-            blurOnSubmit={false}
-            onSubmitEditing={() => refs.status.current?.focus()}
+          <Picker
+            value={type}
+            items={[
+              {label: 'Admin', value: 1},
+              {label: 'Standard', value: 2},
+            ]}
+            onValueChange={(newType) => setType(newType)}
           />
         </InputRow>
         <InputRow last>
           <Text variant="label">Status</Text>
-          <TextInput
-            componentRef={refs.status}
-            placeholder="Ex.: Active"
-            defaultValue={status}
-            onChangeText={(newStatus) => setStatus(newStatus)}
-            returnKeyType="done"
-            maxLength={255}
+          <Picker
+            value={status}
+            items={[
+              {label: 'Active', value: 1},
+              {label: 'Deactivated', value: 2},
+            ]}
+            onValueChange={(newStatus) => setStatus(newStatus)}
           />
         </InputRow>
       </InputContainer>
