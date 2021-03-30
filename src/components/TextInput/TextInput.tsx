@@ -17,10 +17,8 @@ type Props = RNTextInputProps & {
   children?: React.ReactNode;
 };
 
-export const TextInput = ({children, ...rest}: Props) => {
-  return (
-    <RNTextInput {...rest} style={style}>
-      {children}
-    </RNTextInput>
-  );
-};
+export const TextInput = ({children, ...rest}: Props) => (
+  <RNTextInput {...rest} style={style}>
+    {children}
+  </RNTextInput>
+);

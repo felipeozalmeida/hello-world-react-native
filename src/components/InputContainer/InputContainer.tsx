@@ -8,6 +8,6 @@ type Props = {
   children?: React.ReactNode;
 };
 
-export const InputContainer = ({children}: Props) => {
-  return <View style={style}>{children}</View>;
-};
+export const InputContainer = ({children}: Props) => (
+  <View style={style}>{children}</View>
+);
