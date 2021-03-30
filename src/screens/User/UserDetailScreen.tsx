@@ -1,6 +1,5 @@
 import React, {useRef, useState} from 'react';
 import {View, Button, Alert, StyleSheet} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
 import type {TextInput as RNTextInput} from 'react-native';
 
 import {
@@ -9,6 +8,7 @@ import {
   Screen,
   Text,
   TextInput,
+  Picker,
 } from '../../components';
 
 export const UserDetailScreen = () => {
@@ -17,7 +17,7 @@ export const UserDetailScreen = () => {
   const [password, setPassword] = useState('');
   const [type, setType] = useState('');
   const [status, setStatus] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState();
+  const [selectedLanguage, setSelectedLanguage] = useState(0);
 
   const refs = {
     email: useRef<RNTextInput>(null),
@@ -73,9 +73,12 @@ export const UserDetailScreen = () => {
           <Text variant="label">Language @react-native-picker</Text>
           <Picker
             selectedValue={selectedLanguage}
-            onValueChange={(itemValue) => setSelectedLanguage(itemValue)}>
-            <Picker.Item label="Java" value="java" />
-            <Picker.Item label="JavaScript" value="js" />
+            onValueChange={(itemValue) =>
+              setSelectedLanguage(Number(itemValue))
+            }>
+            <Picker.Item label="Select an option" value={0} />
+            <Picker.Item label="Java" value={1} />
+            <Picker.Item label="JavaScript" value={2} />
           </Picker>
         </InputRow>
         <InputRow>
