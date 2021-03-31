@@ -103,6 +103,7 @@ export const UserDetailScreen = ({route}: Props) => {
               keyboardType="numeric"
               blurOnSubmit={false}
               onSubmitEditing={() => refs.email.current?.focus()}
+              editable={false}
             />
           </InputRow>
         )}
