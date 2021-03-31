@@ -92,18 +92,20 @@ export const UserDetailScreen = ({route}: Props) => {
   return (
     <Screen scroll>
       <InputContainer>
-        <InputRow>
-          <Text variant="label">ID</Text>
-          <TextInput
-            placeholder="Ex.: 1"
-            defaultValue={id ? String(id) : ''}
-            onChangeText={(newId) => setId(Number(newId))}
-            returnKeyType="next"
-            keyboardType="numeric"
-            blurOnSubmit={false}
-            onSubmitEditing={() => refs.email.current?.focus()}
-          />
-        </InputRow>
+        {id && (
+          <InputRow>
+            <Text variant="label">ID</Text>
+            <TextInput
+              placeholder="Ex.: 1"
+              defaultValue={String(id)}
+              onChangeText={(newId) => setId(Number(newId))}
+              returnKeyType="next"
+              keyboardType="numeric"
+              blurOnSubmit={false}
+              onSubmitEditing={() => refs.email.current?.focus()}
+            />
+          </InputRow>
+        )}
         <InputRow>
           <Text variant="label">Email</Text>
           <TextInput
