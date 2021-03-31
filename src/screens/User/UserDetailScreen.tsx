@@ -11,10 +11,21 @@ import {
   Picker,
   ButtonContainer,
 } from '../../components';
-import type {TextInputRef} from '../../components';
+import type {Type} from '../../models';
+import type {PickerItem, TextInputRef} from '../../components';
+
+const formatTypeItems = (types: Type[]): PickerItem[] =>
+  types.map<PickerItem>((t) => ({
+    label: t.name,
+    value: t.id,
+  }));
 
 export const UserDetailScreen = () => {
   const {typeService} = useServices();
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [typeItems, setTypeItems] = useState<PickerItem[]>([]);
 
   const [id, setId] = useState('');
   const [email, setEmail] = useState('');
@@ -29,10 +40,32 @@ export const UserDetailScreen = () => {
 
   useEffect(() => {
     (async () => {
-      const types = await typeService.list();
-      console.log(types);
+      try {
+        const types = await typeService.list();
+        setTypeItems(formatTypeItems(types));
+      } catch (e: any) {
+        setError(e.message);
+      } finally {
+        setLoading(false);
+      }
     })();
   });
+
+  if (loading) {
+    return (
+      <Screen>
+        <Text>Loading...</Text>
+      </Screen>
+    );
+  }
+
+  if (error) {
+    return (
+      <Screen>
+        <Text>{error}</Text>
+      </Screen>
+    );
+  }
 
   return (
     <Screen scroll>
@@ -80,10 +113,7 @@ export const UserDetailScreen = () => {
           <Text variant="label">Type</Text>
           <Picker
             value={type}
-            items={[
-              {label: 'Admin', value: 1},
-              {label: 'Standard', value: 2},
-            ]}
+            items={typeItems}
             onValueChange={(newType) => setType(newType)}
           />
         </InputRow>

@@ -8,6 +8,8 @@ export class TypeService implements ITypeService {
   ];
 
   async list(): Promise<Type[]> {
-    return this.items;
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(this.items), 3000);
+    });
   }
 }

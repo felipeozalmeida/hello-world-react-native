@@ -5,6 +5,7 @@ import type {TextStyle as RNTextStyle} from 'react-native';
 import type {
   PickerSelectProps as RNPickerProps,
   PickerStyle as RNPickerStyle,
+  Item as RNPickerItem,
 } from 'react-native-picker-select';
 
 const inputStyle: RNTextStyle = {
@@ -26,5 +27,7 @@ const _Picker = (props: PropsWithChildren<RNPickerProps>) => (
     {props.children}
   </RNPicker>
 );
+
+export type PickerItem = RNPickerItem;
 
 export const Picker = _Picker;
