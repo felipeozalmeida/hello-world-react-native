@@ -5,9 +5,12 @@ import type {
   TextStyle as RNTextStyle,
 } from 'react-native';
 
+import {color} from '../../theme';
+
 type VariantNames = 'default' | 'header' | 'label';
 
 const baseStyle: RNTextStyle = {
+  color: color.text,
   fontSize: 14,
 };
 

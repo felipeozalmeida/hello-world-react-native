@@ -1,14 +1,10 @@
 import React from 'react';
-import {ActivityIndicator as RNActivityIndicator, Platform} from 'react-native';
-import type {
-  ActivityIndicatorProps as RNActivityIndicatorProps,
-  ColorValue,
-} from 'react-native';
+import {ActivityIndicator as RNActivityIndicator} from 'react-native';
+import type {ActivityIndicatorProps as RNActivityIndicatorProps} from 'react-native';
 
-const color = Platform.select<ColorValue>({
-  android: '#2196F3',
-  ios: '#999999',
-});
+import {color as themeColor} from '../../theme';
+
+const color = themeColor.primary;
 
 export type ActivityIndicatorProps = RNActivityIndicatorProps;
 
