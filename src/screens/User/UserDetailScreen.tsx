@@ -150,7 +150,7 @@ export const UserDetailScreen = ({route}: Props) => {
       </InputContainer>
       <ButtonContainer>
         <Button
-          title="Submit"
+          title="Save"
           onPress={() => Alert.alert('Success', 'Form sent successfully.')}
         />
       </ButtonContainer>
