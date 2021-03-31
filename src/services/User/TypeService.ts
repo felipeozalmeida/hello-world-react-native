@@ -1,3 +1,4 @@
+import {NetworkSpeed} from '../../utils';
 import type {Type} from '../../models';
 import type {ITypeService} from './ITypeService';
 
@@ -9,7 +10,7 @@ export class TypeService implements ITypeService {
 
   async list(): Promise<Type[]> {
     return new Promise((resolve) => {
-      setTimeout(() => resolve(this.items), 3000);
+      setTimeout(() => resolve(this.items), NetworkSpeed.Fast);
     });
   }
 }

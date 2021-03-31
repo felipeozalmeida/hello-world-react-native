@@ -1,3 +1,4 @@
+import {NetworkSpeed} from '../../utils';
 import type {Status} from '../../models';
 import type {IStatusService} from './IStatusService';
 
@@ -9,7 +10,7 @@ export class StatusService implements IStatusService {
 
   async list(): Promise<Status[]> {
     return new Promise((resolve) => {
-      setTimeout(() => resolve(this.items), 2000);
+      setTimeout(() => resolve(this.items), NetworkSpeed.Fast);
     });
   }
 }

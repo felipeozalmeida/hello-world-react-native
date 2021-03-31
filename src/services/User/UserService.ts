@@ -1,3 +1,4 @@
+import {NetworkSpeed} from '../../utils';
 import type {User} from '../../models';
 import type {IUserService} from './IUserService';
 
@@ -9,13 +10,16 @@ export class UserService implements IUserService {
 
   async get(id: number): Promise<User> {
     return new Promise((resolve) => {
-      setTimeout(() => resolve(this.items.filter((i) => i.id === id)[0]), 2000);
+      setTimeout(
+        () => resolve(this.items.filter((i) => i.id === id)[0]),
+        NetworkSpeed.Fast,
+      );
     });
   }
 
   async list(): Promise<User[]> {
     return new Promise((resolve) => {
-      setTimeout(() => resolve(this.items), 2000);
+      setTimeout(() => resolve(this.items), NetworkSpeed.Fast);
     });
   }
 }
