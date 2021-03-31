@@ -8,6 +8,7 @@ import {
   Text,
   TextInput,
   Picker,
+  ButtonContainer,
 } from '../../components';
 import type {TextInputRef} from '../../components';
 
@@ -25,7 +26,6 @@ export const UserDetailScreen = () => {
 
   return (
     <Screen scroll>
-      <Text variant="header">Hello World</Text>
       <InputContainer>
         <InputRow>
           <Text variant="label">ID</Text>
@@ -89,10 +89,16 @@ export const UserDetailScreen = () => {
           />
         </InputRow>
       </InputContainer>
-      <Button
-        title="Submit"
-        onPress={() => Alert.alert('Success', 'Form sent successfully.')}
-      />
+      <ButtonContainer>
+        <Button
+          title="Submit"
+          onPress={() => Alert.alert('Success', 'Form sent successfully.')}
+        />
+        <Button
+          title="Delete"
+          onPress={() => Alert.alert('Success', 'Form sent successfully.')}
+        />
+      </ButtonContainer>
     </Screen>
   );
 };
