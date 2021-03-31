@@ -2,7 +2,7 @@ import React from 'react';
 import {Alert, Button} from 'react-native';
 
 import {ButtonContainer, Screen, Text} from '../../components';
-import type {HomeScreenNavigationProps} from '../../@types';
+import type {HomeScreenNavigationProps} from '../../navigators';
 
 type Props = HomeScreenNavigationProps;
 

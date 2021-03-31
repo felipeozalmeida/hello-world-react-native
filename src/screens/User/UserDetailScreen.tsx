@@ -1,6 +1,7 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {Button, Alert} from 'react-native';
 
+import {useServices} from '../../contexts';
 import {
   InputContainer,
   InputRow,
@@ -13,6 +14,8 @@ import {
 import type {TextInputRef} from '../../components';
 
 export const UserDetailScreen = () => {
+  const {typeService} = useServices();
+
   const [id, setId] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,6 +26,13 @@ export const UserDetailScreen = () => {
     email: useRef<TextInputRef>(null),
     password: useRef<TextInputRef>(null),
   };
+
+  useEffect(() => {
+    (async () => {
+      const types = await typeService.list();
+      console.log(types);
+    })();
+  });
 
   return (
     <Screen scroll>

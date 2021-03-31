@@ -10,34 +10,38 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
 import type {StackNavigationOptions} from '@react-navigation/stack';
 
+import {TypeService} from './services';
+import {ServiceProvider} from './contexts';
+import {Stack} from './navigators';
 import {HomeScreen, UserDetailScreen} from './screens';
-import type {
-  RootStackParamList,
-  UserDetailScreenNavigationProps,
-} from './@types';
+import type {Services} from './services';
+import type {UserDetailScreenNavigationProps} from './navigators';
 
-const Stack = createStackNavigator<RootStackParamList>();
+const services: Services = {
+  typeService: new TypeService(),
+};
 
-export const App = () => {
-  const getUserDetailScreenOptions = ({
-    route,
-  }: UserDetailScreenNavigationProps): StackNavigationOptions => {
-    if (route.params?.userId) {
-      return {title: 'User Detail'};
-    }
-    return {title: 'Create User'};
-  };
+const homeScreenOptions = {title: 'Hello World'};
 
-  return (
+const getUserDetailScreenOptions = ({
+  route,
+}: UserDetailScreenNavigationProps): StackNavigationOptions => {
+  if (route.params?.userId) {
+    return {title: 'User Detail'};
+  }
+  return {title: 'Create User'};
+};
+
+export const App = () => (
+  <ServiceProvider value={services}>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{title: 'Hello World'}}
+          options={homeScreenOptions}
         />
         <Stack.Screen
           name="UserDetail"
@@ -46,5 +50,5 @@ export const App = () => {
         />
       </Stack.Navigator>
     </NavigationContainer>
-  );
-};
+  </ServiceProvider>
+);
