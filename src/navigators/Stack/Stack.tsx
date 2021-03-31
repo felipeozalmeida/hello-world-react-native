@@ -3,7 +3,7 @@ import type {StackScreenProps} from '@react-navigation/stack';
 
 export type RootStackParamList = {
   Home: undefined;
-  UserDetail: {userId: string} | undefined;
+  UserDetail: {userId: number} | undefined;
 };
 
 export type HomeScreenNavigationProps = StackScreenProps<

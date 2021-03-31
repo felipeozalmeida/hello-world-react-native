@@ -12,7 +12,8 @@ import {
   ButtonContainer,
   ActivityIndicator,
 } from '../../components';
-import type {Status, Type} from '../../models';
+import type {Status, Type, User} from '../../models';
+import type {UserDetailScreenNavigationProps} from '../../navigators';
 import type {PickerItem, TextInputRef} from '../../components';
 
 const formatStatusItems = (statuses: Status[]): PickerItem[] =>
@@ -27,19 +28,21 @@ const formatTypeItems = (types: Type[]): PickerItem[] =>
     value: t.id,
   }));
 
-export const UserDetailScreen = () => {
-  const {statusService, typeService} = useServices();
+type Props = UserDetailScreenNavigationProps;
+
+export const UserDetailScreen = ({route}: Props) => {
+  const {statusService, typeService, userService} = useServices();
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [statusItems, setStatusItems] = useState<PickerItem[]>([]);
   const [typeItems, setTypeItems] = useState<PickerItem[]>([]);
 
-  const [id, setId] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [type, setType] = useState('');
-  const [status, setStatus] = useState('');
+  const [id, setId] = useState<User['id']>();
+  const [email, setEmail] = useState<User['email']>();
+  const [password, setPassword] = useState<User['password']>();
+  const [type, setType] = useState<User['type']>();
+  const [status, setStatus] = useState<User['status']>();
 
   const refs = {
     email: useRef<TextInputRef>(null),
@@ -53,13 +56,22 @@ export const UserDetailScreen = () => {
         const types = await typeService.list();
         setStatusItems(formatStatusItems(statuses));
         setTypeItems(formatTypeItems(types));
+
+        if (route.params?.userId) {
+          const user = await userService.get(route.params?.userId);
+          setId(user.id);
+          setEmail(user.email);
+          setPassword(user.password);
+          setType(user.type);
+          setStatus(user.status);
+        }
       } catch (e: any) {
         setError(e.message);
       } finally {
         setLoading(false);
       }
     })();
-  });
+  }, [route.params, statusService, typeService, userService]);
 
   if (loading) {
     return (
@@ -84,8 +96,8 @@ export const UserDetailScreen = () => {
           <Text variant="label">ID</Text>
           <TextInput
             placeholder="Ex.: 1"
-            defaultValue={id}
-            onChangeText={(newId) => setId(newId)}
+            defaultValue={String(id)}
+            onChangeText={(newId) => setId(Number(newId))}
             returnKeyType="next"
             keyboardType="numeric"
             blurOnSubmit={false}
