@@ -5,3 +5,4 @@ export * from './InputRow/InputRow';
 export * from './TextInput/TextInput';
 export * from './Picker/Picker';
 export * from './ButtonContainer/ButtonContainer';
+export * from './ActivityIndicator/ActivityIndicator';

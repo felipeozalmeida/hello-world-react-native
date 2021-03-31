@@ -10,6 +10,7 @@ import {
   TextInput,
   Picker,
   ButtonContainer,
+  ActivityIndicator,
 } from '../../components';
 import type {Type} from '../../models';
 import type {PickerItem, TextInputRef} from '../../components';
@@ -54,7 +55,7 @@ export const UserDetailScreen = () => {
   if (loading) {
     return (
       <Screen>
-        <Text>Loading...</Text>
+        <ActivityIndicator />
       </Screen>
     );
   }
