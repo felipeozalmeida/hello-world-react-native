@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "AwesomeTSProject-tvOS.app"
-               BlueprintName = "AwesomeTSProject-tvOS"
-               ReferencedContainer = "container:AwesomeTSProject.xcodeproj">
+               BuildableName = "HelloWorldRN-tvOS.app"
+               BlueprintName = "HelloWorldRN-tvOS"
+               ReferencedContainer = "container:HelloWorldRN.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "AwesomeTSProject-tvOSTests.xctest"
-               BlueprintName = "AwesomeTSProject-tvOSTests"
-               ReferencedContainer = "container:AwesomeTSProject.xcodeproj">
+               BuildableName = "HelloWorldRN-tvOSTests.xctest"
+               BlueprintName = "HelloWorldRN-tvOSTests"
+               ReferencedContainer = "container:HelloWorldRN.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "AwesomeTSProject-tvOS.app"
-            BlueprintName = "AwesomeTSProject-tvOS"
-            ReferencedContainer = "container:AwesomeTSProject.xcodeproj">
+            BuildableName = "HelloWorldRN-tvOS.app"
+            BlueprintName = "HelloWorldRN-tvOS"
+            ReferencedContainer = "container:HelloWorldRN.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "AwesomeTSProject-tvOS.app"
-            BlueprintName = "AwesomeTSProject-tvOS"
-            ReferencedContainer = "container:AwesomeTSProject.xcodeproj">
+            BuildableName = "HelloWorldRN-tvOS.app"
+            BlueprintName = "HelloWorldRN-tvOS"
+            ReferencedContainer = "container:HelloWorldRN.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
