@@ -96,7 +96,7 @@ export const UserDetailScreen = ({route}: Props) => {
           <Text variant="label">ID</Text>
           <TextInput
             placeholder="Ex.: 1"
-            defaultValue={String(id)}
+            defaultValue={id ? String(id) : ''}
             onChangeText={(newId) => setId(Number(newId))}
             returnKeyType="next"
             keyboardType="numeric"
