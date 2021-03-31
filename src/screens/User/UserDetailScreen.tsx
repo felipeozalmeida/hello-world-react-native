@@ -12,8 +12,14 @@ import {
   ButtonContainer,
   ActivityIndicator,
 } from '../../components';
-import type {Type} from '../../models';
+import type {Status, Type} from '../../models';
 import type {PickerItem, TextInputRef} from '../../components';
+
+const formatStatusItems = (statuses: Status[]): PickerItem[] =>
+  statuses.map<PickerItem>((t) => ({
+    label: t.name,
+    value: t.id,
+  }));
 
 const formatTypeItems = (types: Type[]): PickerItem[] =>
   types.map<PickerItem>((t) => ({
@@ -22,10 +28,11 @@ const formatTypeItems = (types: Type[]): PickerItem[] =>
   }));
 
 export const UserDetailScreen = () => {
-  const {typeService} = useServices();
+  const {statusService, typeService} = useServices();
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [statusItems, setStatusItems] = useState<PickerItem[]>([]);
   const [typeItems, setTypeItems] = useState<PickerItem[]>([]);
 
   const [id, setId] = useState('');
@@ -42,7 +49,9 @@ export const UserDetailScreen = () => {
   useEffect(() => {
     (async () => {
       try {
+        const statuses = await statusService.list();
         const types = await typeService.list();
+        setStatusItems(formatStatusItems(statuses));
         setTypeItems(formatTypeItems(types));
       } catch (e: any) {
         setError(e.message);
@@ -122,10 +131,7 @@ export const UserDetailScreen = () => {
           <Text variant="label">Status</Text>
           <Picker
             value={status}
-            items={[
-              {label: 'Active', value: 1},
-              {label: 'Deactivated', value: 2},
-            ]}
+            items={statusItems}
             onValueChange={(newStatus) => setStatus(newStatus)}
           />
         </InputRow>

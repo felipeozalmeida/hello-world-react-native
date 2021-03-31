@@ -12,7 +12,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import type {StackNavigationOptions} from '@react-navigation/stack';
 
-import {TypeService} from './services';
+import {StatusService, TypeService} from './services';
 import {ServiceProvider} from './contexts';
 import {Stack} from './navigators';
 import {HomeScreen, UserDetailScreen} from './screens';
@@ -20,6 +20,7 @@ import type {Services} from './services';
 import type {UserDetailScreenNavigationProps} from './navigators';
 
 const services: Services = {
+  statusService: new StatusService(),
   typeService: new TypeService(),
 };
 

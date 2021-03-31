@@ -2,7 +2,7 @@ import type {Type} from '../../models';
 import type {ITypeService} from './ITypeService';
 
 export class TypeService implements ITypeService {
-  items: Type[] = [
+  private items: Type[] = [
     {id: 1, name: 'Admin'},
     {id: 2, name: 'Standard'},
   ];
