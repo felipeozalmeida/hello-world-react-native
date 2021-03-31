@@ -8,7 +8,7 @@ const rootStyles: ViewStyle = {
   marginVertical: spacing[3],
 };
 
-const buttonSpacing: ViewStyle = {
+const buttonContainerStyles: ViewStyle = {
   marginTop: spacing[1],
 };
 
@@ -20,7 +20,7 @@ export const ButtonContainer = (props: Props) => {
   return (
     <View {...props} style={[rootStyles, props.style]}>
       {props.children?.map((child, index) => (
-        <View style={index > 0 ? buttonSpacing : {}} key={index}>
+        <View style={index > 0 ? buttonContainerStyles : {}} key={index}>
           {child}
         </View>
       ))}
