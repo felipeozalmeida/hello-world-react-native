@@ -2,7 +2,7 @@ import React from 'react';
 import {ScrollView, StatusBar, StyleSheet, View} from 'react-native';
 
 type Props = {
-  scroll: boolean;
+  scroll?: boolean;
   children?: React.ReactNode;
 };
 
