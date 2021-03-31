@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {Children} from 'react';
 import {View} from 'react-native';
-import type {ReactNode} from 'react';
+import type {PropsWithChildren} from 'react';
 import type {ViewStyle, ViewProps} from 'react-native';
+
 import {spacing} from '../../theme';
 
 const rootStyles: ViewStyle = {
@@ -12,18 +13,14 @@ const buttonContainerStyles: ViewStyle = {
   marginTop: spacing[1],
 };
 
-type Props = ViewProps & {
-  children?: ReactNode[];
-};
+type Props = PropsWithChildren<ViewProps>;
 
-export const ButtonContainer = (props: Props) => {
-  return (
-    <View {...props} style={[rootStyles, props.style]}>
-      {props.children?.map((child, index) => (
-        <View style={index > 0 ? buttonContainerStyles : {}} key={index}>
-          {child}
-        </View>
-      ))}
-    </View>
-  );
-};
+export const ButtonContainer = (props: Props) => (
+  <View {...props} style={[rootStyles, props.style]}>
+    {Children.map(props.children, (child, index) => (
+      <View style={index > 0 ? buttonContainerStyles : {}} key={index}>
+        {child}
+      </View>
+    ))}
+  </View>
+);

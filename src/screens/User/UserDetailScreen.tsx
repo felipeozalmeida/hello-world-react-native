@@ -94,10 +94,6 @@ export const UserDetailScreen = () => {
           title="Submit"
           onPress={() => Alert.alert('Success', 'Form sent successfully.')}
         />
-        <Button
-          title="Delete"
-          onPress={() => Alert.alert('Success', 'Form sent successfully.')}
-        />
       </ButtonContainer>
     </Screen>
   );
