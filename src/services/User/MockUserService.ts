@@ -2,7 +2,7 @@ import {NetworkSpeed} from '../../utils';
 import type {User} from '../../models';
 import type {IUserService} from './IUserService';
 
-export class UserService implements IUserService {
+export class MockUserService implements IUserService {
   private items: User[] = [
     {id: 1, email: 'test@gmail.com', password: '1234', type: 1, status: 1},
     {id: 2, email: 'test@outlook.com', password: '1234', type: 2, status: 2},

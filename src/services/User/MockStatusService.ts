@@ -2,7 +2,7 @@ import {NetworkSpeed} from '../../utils';
 import type {Status} from '../../models';
 import type {IStatusService} from './IStatusService';
 
-export class StatusService implements IStatusService {
+export class MockStatusService implements IStatusService {
   private items: Status[] = [
     {id: 1, name: 'Active'},
     {id: 2, name: 'Deactivated'},

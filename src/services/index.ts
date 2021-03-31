@@ -12,6 +12,6 @@ export * from './User/IUserService';
 export * from './User/IStatusService';
 export * from './User/ITypeService';
 
-export * from './User/UserService';
-export * from './User/StatusService';
-export * from './User/TypeService';
+export * from './User/MockUserService';
+export * from './User/MockStatusService';
+export * from './User/MockTypeService';
