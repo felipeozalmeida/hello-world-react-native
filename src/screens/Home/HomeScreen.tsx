@@ -8,7 +8,7 @@ type Props = HomeScreenNavigationProps;
 
 export const HomeScreen = ({navigation}: Props) => {
   const goToCreateUser = () => navigation.navigate('UserDetail');
-  const goToUserDetail = () => navigation.navigate('UserDetail', {userId: 1});
+  const goToUserDetail = () => navigation.navigate('UserDetail', {userId: 3});
   const goToUserList = () => Alert.alert('Error', 'Not implemented.');
 
   return (
