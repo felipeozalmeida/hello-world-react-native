@@ -1,6 +1,6 @@
 import {createContext, useContext} from 'react';
 
-import type {Services} from '../../services';
+import type {Services} from '../services';
 
 /**
  * Create a context we can use to
