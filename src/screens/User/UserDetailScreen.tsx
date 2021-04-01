@@ -1,6 +1,9 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {Button, Alert} from 'react-native';
 
+import type {Status, Type, User} from '../../models';
+import type {UserDetailScreenNavigationProps} from '../../navigators';
+import type {PickerItem, TextInputRef} from '../../components';
 import {useServices} from '../../contexts';
 import {
   InputContainer,
@@ -12,9 +15,6 @@ import {
   ButtonContainer,
   ActivityIndicator,
 } from '../../components';
-import type {Status, Type, User} from '../../models';
-import type {UserDetailScreenNavigationProps} from '../../navigators';
-import type {PickerItem, TextInputRef} from '../../components';
 
 type Props = UserDetailScreenNavigationProps;
 
