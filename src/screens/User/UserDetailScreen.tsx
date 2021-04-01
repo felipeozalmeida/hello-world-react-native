@@ -4,6 +4,7 @@ import {Button, Alert} from 'react-native';
 import type {Status, Type, User} from '../../models';
 import type {UserDetailScreenNavigationProps} from '../../navigators';
 import type {PickerItem, TextInputRef} from '../../components';
+import {canCreateUser, canUpdateUser} from '../../models';
 import {useServices} from '../../contexts';
 import {
   InputContainer,
@@ -82,9 +83,9 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
   };
 
   const handleSaveUser = () => {
-    if (user.id && user.email && user.password && user.type && user.status) {
+    if (canUpdateUser(user)) {
       updateUser(user);
-    } else if (user.email && user.password && user.type && user.status) {
+    } else if (canCreateUser(user)) {
       createUser(user);
     } else {
       Alert.alert('Error', 'All fields are required.');
