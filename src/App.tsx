@@ -15,7 +15,7 @@ import type {StackNavigationOptions} from '@react-navigation/stack';
 import {services} from './plugins';
 import {ServiceProvider} from './contexts';
 import {Stack} from './navigators';
-import {HomeScreen, UserDetailScreen} from './screens';
+import {HomeScreen, UserDetailScreen, UserDetailScreenTitle} from './screens';
 import type {UserDetailScreenNavigationProps} from './navigators';
 
 const homeScreenOptions = {title: 'Hello World'};
@@ -24,9 +24,9 @@ const getUserDetailScreenOptions = ({
   route,
 }: UserDetailScreenNavigationProps): StackNavigationOptions => {
   if (route.params?.userId) {
-    return {title: 'User Detail'};
+    return {title: UserDetailScreenTitle.Default};
   }
-  return {title: 'Create User'};
+  return {title: UserDetailScreenTitle.New};
 };
 
 export const App = () => (

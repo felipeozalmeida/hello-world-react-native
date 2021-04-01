@@ -30,6 +30,11 @@ const formatTypeItems = (types: Type[]): PickerItem[] =>
     value: t.id,
   }));
 
+export enum UserDetailScreenTitle {
+  Default = 'User Detail',
+  New = 'Create User',
+}
+
 export const UserDetailScreen = ({navigation, route}: Props) => {
   const {statusService, typeService, userService} = useServices();
 
@@ -54,7 +59,7 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
     try {
       const createdUser = await userService.create(userToCreate);
       setUser(createdUser);
-      navigation.setOptions({title: 'User Detail'});
+      navigation.setOptions({title: UserDetailScreenTitle.Default});
       Alert.alert('Success', 'User created successfully.');
     } catch (e) {
       Alert.alert('Error', 'User could not be created.');
