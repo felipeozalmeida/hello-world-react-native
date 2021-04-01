@@ -37,12 +37,12 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
   const [error, setError] = useState('');
   const [statusItems, setStatusItems] = useState<PickerItem[]>([]);
   const [typeItems, setTypeItems] = useState<PickerItem[]>([]);
-
-  const [id, setId] = useState<User['id']>();
-  const [email, setEmail] = useState<User['email']>();
-  const [password, setPassword] = useState<User['password']>();
-  const [type, setType] = useState<User['type']>();
-  const [status, setStatus] = useState<User['status']>();
+  const [user, setUser] = useState<User>({
+    email: '',
+    password: '',
+    status: 0,
+    type: 0,
+  });
 
   const refs = {
     email: useRef<TextInputRef>(null),
@@ -53,11 +53,7 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
     setLoading(true);
     try {
       const createdUser = await userService.create(userToCreate);
-      setId(createdUser.id);
-      setEmail(createdUser.email);
-      setPassword(createdUser.password);
-      setType(createdUser.type);
-      setStatus(createdUser.status);
+      setUser(createdUser);
       navigation.setOptions({title: 'User Detail'});
       Alert.alert('Success', 'User created successfully.');
     } catch (e) {
@@ -67,11 +63,11 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
     }
   };
 
-  const handleSaveUser = async (): Promise<void> => {
-    if (id && email && password && type && status) {
+  const handleSaveUser = () => {
+    if (user.id && user.email && user.password && user.type && user.status) {
       Alert.alert('Error', 'Not implemented.');
-    } else if (email && password && type && status) {
-      createUser({email, password, type, status});
+    } else if (user.email && user.password && user.type && user.status) {
+      createUser(user);
     } else {
       Alert.alert('Error', 'All fields are required.');
     }
@@ -86,12 +82,8 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
         setTypeItems(formatTypeItems(types));
 
         if (route.params?.userId) {
-          const user = await userService.get(route.params?.userId);
-          setId(user.id);
-          setEmail(user.email);
-          setPassword(user.password);
-          setType(user.type);
-          setStatus(user.status);
+          const initialUser = await userService.get(route.params?.userId);
+          setUser(initialUser);
         }
       } catch (e: any) {
         setError(e.message);
@@ -120,13 +112,15 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
   return (
     <Screen scroll>
       <InputContainer>
-        {id && (
+        {user.id && (
           <InputRow>
             <Text variant="label">ID</Text>
             <TextInput
               placeholder="Ex.: 1"
-              defaultValue={String(id)}
-              onChangeText={(newId) => setId(Number(newId))}
+              defaultValue={String(user.id)}
+              onChangeText={(newId) =>
+                setUser((oldUser) => ({...oldUser, id: Number(newId)}))
+              }
               returnKeyType="next"
               keyboardType="numeric"
               blurOnSubmit={false}
@@ -140,8 +134,10 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
           <TextInput
             componentRef={refs.email}
             placeholder="Ex.: alex@contoso.com"
-            defaultValue={email}
-            onChangeText={(newEmail) => setEmail(newEmail)}
+            defaultValue={user.email}
+            onChangeText={(newEmail) =>
+              setUser((oldUser) => ({...oldUser, email: newEmail}))
+            }
             returnKeyType="next"
             maxLength={255}
             autoCompleteType="email"
@@ -154,8 +150,10 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
           <Text variant="label">Password</Text>
           <TextInput
             componentRef={refs.password}
-            defaultValue={password}
-            onChangeText={(newPassword) => setPassword(newPassword)}
+            defaultValue={user.password}
+            onChangeText={(newPassword) =>
+              setUser((oldUser) => ({...oldUser, password: newPassword}))
+            }
             returnKeyType="next"
             maxLength={255}
             autoCompleteType="password"
@@ -165,17 +163,21 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
         <InputRow>
           <Text variant="label">Type</Text>
           <Picker
-            value={type}
+            value={user.type}
             items={typeItems}
-            onValueChange={(newType) => setType(newType)}
+            onValueChange={(newType) =>
+              setUser((oldUser) => ({...oldUser, type: newType}))
+            }
           />
         </InputRow>
         <InputRow last>
           <Text variant="label">Status</Text>
           <Picker
-            value={status}
+            value={user.status}
             items={statusItems}
-            onValueChange={(newStatus) => setStatus(newStatus)}
+            onValueChange={(newStatus) =>
+              setUser((oldUser) => ({...oldUser, status: newStatus}))
+            }
           />
         </InputRow>
       </InputContainer>
