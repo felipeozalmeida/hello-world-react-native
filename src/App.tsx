@@ -12,18 +12,11 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import type {StackNavigationOptions} from '@react-navigation/stack';
 
-import {MockStatusService, MockTypeService, MockUserService} from './services';
+import {services} from './plugins';
 import {ServiceProvider} from './contexts';
 import {Stack} from './navigators';
 import {HomeScreen, UserDetailScreen} from './screens';
-import type {Services} from './services';
 import type {UserDetailScreenNavigationProps} from './navigators';
-
-const services: Services = {
-  statusService: new MockStatusService(),
-  typeService: new MockTypeService(),
-  userService: new MockUserService(),
-};
 
 const homeScreenOptions = {title: 'Hello World'};
 
