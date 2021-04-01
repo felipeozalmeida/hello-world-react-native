@@ -154,7 +154,7 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
             onChangeText={(newPassword) =>
               setUser((oldUser) => ({...oldUser, password: newPassword}))
             }
-            returnKeyType="next"
+            returnKeyType="done"
             maxLength={255}
             autoCompleteType="password"
             secureTextEntry
