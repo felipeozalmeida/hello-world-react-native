@@ -34,4 +34,18 @@ export class MockUserService implements IUserService {
       }, NetworkSpeed.Fast);
     });
   }
+
+  async update(user: User): Promise<User> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.items = this.items.map<User>((item) => {
+          if (item.id === user.id) {
+            return user;
+          }
+          return item;
+        });
+        resolve(user);
+      }, NetworkSpeed.Fast);
+    });
+  }
 }

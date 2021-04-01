@@ -68,9 +68,22 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
     }
   };
 
+  const updateUser = async (userToUpdate: User) => {
+    setLoading(true);
+    try {
+      const updatedUser = await userService.update(userToUpdate);
+      setUser(updatedUser);
+      Alert.alert('Success', 'User updated successfully.');
+    } catch (e) {
+      Alert.alert('Error', 'User could not be updated.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleSaveUser = () => {
     if (user.id && user.email && user.password && user.type && user.status) {
-      Alert.alert('Error', 'Not implemented.');
+      updateUser(user);
     } else if (user.email && user.password && user.type && user.status) {
       createUser(user);
     } else {
