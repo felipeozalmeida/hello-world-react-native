@@ -39,7 +39,7 @@ export enum UserDetailScreenTitle {
 export const UserDetailScreen = ({navigation, route}: Props) => {
   const {statusService, typeService, userService} = useServices();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [statusItems, setStatusItems] = useState<PickerItem[]>([]);
   const [typeItems, setTypeItems] = useState<PickerItem[]>([]);
@@ -94,6 +94,7 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       try {
         const statuses = await statusService.list();
         const types = await typeService.list();
