@@ -6,11 +6,13 @@ import type {
   TextInputProps as RNTextInputProps,
 } from 'react-native';
 
+import {palette} from '../../theme';
+
 const style: RNTextStyle = {
   paddingHorizontal: 8,
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: '#000',
+  borderColor: palette.black,
   borderRadius: 4,
 };
 
