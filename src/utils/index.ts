@@ -1,1 +1,1 @@
-export * from './NetworkSpeed';
+export * from './network-speed';
