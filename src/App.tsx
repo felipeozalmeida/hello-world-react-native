@@ -15,10 +15,16 @@ import type {StackNavigationOptions} from '@react-navigation/stack';
 import {services} from './plugins';
 import {ServiceProvider} from './contexts';
 import {Stack} from './navigators';
-import {HomeScreen, UserDetailScreen, UserDetailScreenTitle} from './screens';
+import {
+  HomeScreen,
+  UserDetailScreen,
+  UserDetailScreenTitle,
+  UserListScreen,
+} from './screens';
 import type {UserDetailScreenNavigationProps} from './navigators';
 
 const homeScreenOptions = {title: 'Hello World'};
+const userListScreenOptions = {title: 'Users'};
 
 const getUserDetailScreenOptions = ({
   route,
@@ -42,6 +48,11 @@ export const App = () => (
           name="UserDetail"
           component={UserDetailScreen}
           options={getUserDetailScreenOptions}
+        />
+        <Stack.Screen
+          name="UserList"
+          component={UserListScreen}
+          options={userListScreenOptions}
         />
       </Stack.Navigator>
     </NavigationContainer>

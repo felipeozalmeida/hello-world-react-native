@@ -4,6 +4,7 @@ import type {StackScreenProps} from '@react-navigation/stack';
 export type RootStackParamList = {
   Home: undefined;
   UserDetail: {userId: number} | undefined;
+  UserList: undefined;
 };
 
 export type HomeScreenNavigationProps = StackScreenProps<
@@ -14,6 +15,11 @@ export type HomeScreenNavigationProps = StackScreenProps<
 export type UserDetailScreenNavigationProps = StackScreenProps<
   RootStackParamList,
   'UserDetail'
+>;
+
+export type UserListScreenNavigationProps = StackScreenProps<
+  RootStackParamList,
+  'UserList'
 >;
 
 export const Stack = createStackNavigator<RootStackParamList>();
