@@ -5,7 +5,7 @@ import type {User} from '../../models';
 import type {ListRenderItem} from '../../components';
 
 const renderItem: ListRenderItem<User> = (info) => (
-  <Text>{info.item.email}</Text>
+  <Text key={info.item.id}>{info.item.email}</Text>
 );
 
 export const UserListScreen = () => {
