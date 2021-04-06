@@ -1,14 +1,35 @@
 import React from 'react';
-import {Screen, Text} from '../../components';
+import {Screen, Text, FlatList} from '../../components';
 
-import type {UserListScreenNavigationProps} from '../../navigators';
+import type {User} from '../../models';
+import type {ListRenderItem} from '../../components';
 
-type Props = UserListScreenNavigationProps;
+const renderItem: ListRenderItem<User> = (info) => (
+  <Text>{info.item.email}</Text>
+);
 
-export const UserListScreen = (props: Props) => {
+export const UserListScreen = () => {
   return (
     <Screen>
-      <Text>Hello from {props.route.name}.</Text>
+      <FlatList
+        data={[
+          {
+            id: 1,
+            email: 'test@gmail.com',
+            password: '1234',
+            type: 1,
+            status: 1,
+          },
+          {
+            id: 2,
+            email: 'test@outlook.com',
+            password: '1234',
+            type: 2,
+            status: 2,
+          },
+        ]}
+        renderItem={renderItem}
+      />
     </Screen>
   );
 };
