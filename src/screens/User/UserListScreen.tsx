@@ -5,10 +5,13 @@ import {
   Text,
   FlatList,
   ActivityIndicator,
-  UserListItem,
+  Pressable,
+  Card,
+  Spacer,
 } from '../../components';
 
 import type {User} from '../../models';
+import type {ListRenderItem} from '../../components';
 
 export const UserListScreen = () => {
   const {userService} = useServices();
@@ -17,6 +20,16 @@ export const UserListScreen = () => {
   const [error, setError] = useState('');
 
   const [users, setUsers] = useState<User[]>([]);
+
+  const _renderItem: ListRenderItem<User> = (info) => (
+    <Pressable key={info.item.id}>
+      <Card>
+        <Text>{info.item.email}</Text>
+      </Card>
+    </Pressable>
+  );
+
+  const _renderItemSeparatorComponent = () => <Spacer vertical={1} />;
 
   useEffect(() => {
     (async () => {
@@ -50,7 +63,11 @@ export const UserListScreen = () => {
 
   return (
     <Screen>
-      <FlatList data={users} renderItem={UserListItem} />
+      <FlatList
+        data={users}
+        renderItem={_renderItem}
+        ItemSeparatorComponent={_renderItemSeparatorComponent}
+      />
     </Screen>
   );
 };
