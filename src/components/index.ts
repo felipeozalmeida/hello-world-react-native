@@ -7,3 +7,4 @@ export * from './Picker/Picker';
 export * from './ButtonContainer/ButtonContainer';
 export * from './ActivityIndicator/ActivityIndicator';
 export * from './FlatList/FlatList';
+export * from './UserListItem/UserListItem';
