@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Alert} from 'react-native';
 import {useServices} from '../../contexts';
 import {
   Screen,
@@ -26,13 +27,29 @@ export const UserListScreen = (props: Props) => {
   const goToUserDetail = (id: User['id']) =>
     props.navigation.navigate('UserDetail', {userId: id});
 
+  const deleteUser = (id: User['id']) => {
+    (async () => {
+      setLoading(true);
+      try {
+        await userService.delete(id);
+        const fetchedUsers = await userService.list();
+        setUsers(fetchedUsers);
+        Alert.alert('Success', 'User deleted successfully.');
+      } catch (e: any) {
+        Alert.alert('Error', 'User could not be deleted.');
+      } finally {
+        setLoading(false);
+      }
+    })();
+  };
+
   const _renderItem: ListRenderItem<User> = (info) => (
     <FlatListItem
       key={info.item.id}
       id={info.item.id}
       text={info.item.email}
       onPress={goToUserDetail}
-      onDelete={() => null}
+      onDelete={deleteUser}
     />
   );
 

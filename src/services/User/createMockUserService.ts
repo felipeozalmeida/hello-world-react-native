@@ -46,5 +46,13 @@ export const createMockUserService = (): UserService => {
         }, NetworkSpeed.Fast);
       });
     },
+    async delete(id: User['id']): Promise<void> {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          items = items.filter((item) => item.id !== id);
+          resolve();
+        }, NetworkSpeed.Fast);
+      });
+    },
   };
 };

@@ -5,4 +5,5 @@ export type UserService = {
   list: () => Promise<User[]>;
   create: (user: User) => Promise<User>;
   update: (user: User) => Promise<User>;
+  delete: (id: User['id']) => Promise<void>;
 };
