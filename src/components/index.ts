@@ -7,6 +7,7 @@ export * from './Picker/Picker';
 export * from './ButtonContainer/ButtonContainer';
 export * from './ActivityIndicator/ActivityIndicator';
 export * from './FlatList/FlatList';
+export * from './FlatListItem/FlatListItem';
 export * from './Pressable/Pressable';
 export * from './Card/Card';
 export * from './Spacer/Spacer';

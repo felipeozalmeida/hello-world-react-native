@@ -4,6 +4,7 @@ import {
   Screen,
   Text,
   FlatList,
+  FlatListItem,
   ActivityIndicator,
   Pressable,
   Card,
@@ -31,11 +32,13 @@ export const UserListScreen = (props: Props) => {
   };
 
   const _renderItem: ListRenderItem<User> = (info) => (
-    <Pressable key={info.item.id} onPress={() => goToUserDetail(info.item.id)}>
-      <Card>
-        <Text>{info.item.email}</Text>
-      </Card>
-    </Pressable>
+    <FlatListItem
+      key={info.item.id}
+      id={info.item.id || 0}
+      text={info.item.email}
+      onPress={(id) => goToUserDetail(id)}
+      onDelete={() => null}
+    />
   );
 
   const _renderItemSeparatorComponent = () => <Spacer vertical={1} />;
