@@ -1,5 +1,5 @@
 import type {Type} from '../../models';
 
-export interface ITypeService {
+export type TypeService = {
   list: () => Promise<Type[]>;
-}
+};

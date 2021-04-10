@@ -1,8 +1,12 @@
 import type {Services} from '../services';
-import {MockStatusService, MockTypeService, MockUserService} from '../services';
+import {
+  createMockStatusService,
+  createMockTypeService,
+  createMockUserService,
+} from '../services';
 
 export const services: Services = {
-  statusService: new MockStatusService(),
-  typeService: new MockTypeService(),
-  userService: new MockUserService(),
+  statusService: createMockStatusService(),
+  typeService: createMockTypeService(),
+  userService: createMockUserService(),
 };

@@ -1,5 +1,5 @@
 import type {Status} from '../../models';
 
-export interface IStatusService {
+export type StatusService = {
   list: () => Promise<Status[]>;
-}
+};
