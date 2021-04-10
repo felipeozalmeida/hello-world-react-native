@@ -6,8 +6,6 @@ import {
   FlatList,
   FlatListItem,
   ActivityIndicator,
-  Pressable,
-  Card,
   Spacer,
 } from '../../components';
 
@@ -34,7 +32,7 @@ export const UserListScreen = (props: Props) => {
   const _renderItem: ListRenderItem<User> = (info) => (
     <FlatListItem
       key={info.item.id}
-      id={info.item.id || 0}
+      id={info.item.id}
       text={info.item.email}
       onPress={(id) => goToUserDetail(id)}
       onDelete={() => null}

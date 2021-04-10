@@ -1,7 +1,7 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {Button, Alert} from 'react-native';
 
-import type {Status, Type, User} from '../../models';
+import {Status, Type, User, UserWithoutId} from '../../models';
 import type {UserDetailScreenNavigationProps} from '../../navigators';
 import type {PickerItem, TextInputRef} from '../../components';
 import {canCreateUser, canUpdateUser} from '../../models';
@@ -43,7 +43,7 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
   const [error, setError] = useState('');
   const [statusItems, setStatusItems] = useState<PickerItem[]>([]);
   const [typeItems, setTypeItems] = useState<PickerItem[]>([]);
-  const [user, setUser] = useState<User>({
+  const [user, setUser] = useState<UserWithoutId | User>({
     email: '',
     password: '',
     status: 0,
