@@ -12,8 +12,11 @@ import {
 
 import type {User} from '../../models';
 import type {ListRenderItem} from '../../components';
+import type {UserListScreenNavigationProps} from '../../navigators';
 
-export const UserListScreen = () => {
+type Props = UserListScreenNavigationProps;
+
+export const UserListScreen = (props: Props) => {
   const {userService} = useServices();
 
   const [loading, setLoading] = useState(false);
@@ -21,8 +24,14 @@ export const UserListScreen = () => {
 
   const [users, setUsers] = useState<User[]>([]);
 
+  const goToUserDetail = (id: User['id']) => {
+    if (id) {
+      return props.navigation.navigate('UserDetail', {userId: id});
+    }
+  };
+
   const _renderItem: ListRenderItem<User> = (info) => (
-    <Pressable key={info.item.id}>
+    <Pressable key={info.item.id} onPress={() => goToUserDetail(info.item.id)}>
       <Card>
         <Text>{info.item.email}</Text>
       </Card>
