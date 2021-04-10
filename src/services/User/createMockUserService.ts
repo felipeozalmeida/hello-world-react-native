@@ -1,5 +1,5 @@
 import {NetworkSpeed} from '../../utils';
-import type {User} from '../../models';
+import type {User, UserWithoutId} from '../../models';
 import type {UserService} from './UserService';
 
 export const createMockUserService = (): UserService => {
@@ -23,13 +23,13 @@ export const createMockUserService = (): UserService => {
         setTimeout(() => resolve(items), NetworkSpeed.Fast);
       });
     },
-    async create(user: User): Promise<User> {
+    async create(user: UserWithoutId): Promise<User> {
       return new Promise((resolve) => {
         setTimeout(() => {
-          user.id = autoIncrement;
-          items.push(user);
+          const newUser: User = {...user, id: autoIncrement};
+          items.push(newUser);
           autoIncrement++;
-          resolve(user);
+          resolve(newUser);
         }, NetworkSpeed.Fast);
       });
     },

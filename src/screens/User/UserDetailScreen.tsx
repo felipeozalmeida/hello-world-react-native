@@ -55,7 +55,7 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
     password: useRef<TextInputRef>(null),
   };
 
-  const createUser = async (userToCreate: User) => {
+  const createUser = async (userToCreate: UserWithoutId) => {
     setLoading(true);
     try {
       const createdUser = await userService.create(userToCreate);
@@ -83,8 +83,8 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
   };
 
   const handleSaveUser = () => {
-    if (canUpdateUser(user)) {
-      updateUser(user);
+    if (canUpdateUser(user as User)) {
+      updateUser(user as User);
     } else if (canCreateUser(user)) {
       createUser(user);
     } else {
@@ -132,12 +132,12 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
   return (
     <Screen scroll>
       <InputContainer>
-        {user.id && (
+        {(user as User).id && (
           <InputRow>
             <Text variant="label">ID</Text>
             <TextInput
               placeholder="Ex.: 1"
-              defaultValue={String(user.id)}
+              defaultValue={String((user as User).id)}
               onChangeText={(newId) =>
                 setUser((oldUser) => ({...oldUser, id: Number(newId)}))
               }
