@@ -1,7 +1,7 @@
 import type {User} from '../../models';
 
 export interface IUserService {
-  get: (id: number) => Promise<User>;
+  get: (id: User['id']) => Promise<User>;
   list: () => Promise<User[]>;
   create: (user: User) => Promise<User>;
   update: (user: User) => Promise<User>;
