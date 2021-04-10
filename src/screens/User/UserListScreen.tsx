@@ -23,18 +23,15 @@ export const UserListScreen = (props: Props) => {
 
   const [users, setUsers] = useState<User[]>([]);
 
-  const goToUserDetail = (id: User['id']) => {
-    if (id) {
-      return props.navigation.navigate('UserDetail', {userId: id});
-    }
-  };
+  const goToUserDetail = (id: User['id']) =>
+    props.navigation.navigate('UserDetail', {userId: id});
 
   const _renderItem: ListRenderItem<User> = (info) => (
     <FlatListItem
       key={info.item.id}
       id={info.item.id}
       text={info.item.email}
-      onPress={(id) => goToUserDetail(id)}
+      onPress={goToUserDetail}
       onDelete={() => null}
     />
   );
