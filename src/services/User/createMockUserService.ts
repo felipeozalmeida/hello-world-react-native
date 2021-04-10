@@ -10,7 +10,7 @@ export const createMockUserService = (): UserService => {
   ];
 
   return {
-    async get(id: number): Promise<User> {
+    async get(id: User['id']): Promise<User> {
       return new Promise((resolve) => {
         setTimeout(
           () => resolve(items.filter((i) => i.id === id)[0]),
