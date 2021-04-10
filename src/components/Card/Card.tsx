@@ -19,8 +19,8 @@ const style: RNViewStyle = {
 
 type Props = PropsWithChildren<RNViewProps>;
 
-export const Card = (props: Props) => (
-  <RNView style={style} {...props}>
-    {props.children}
+export const Card = ({style: overrideStyle, ...rest}: Props) => (
+  <RNView style={{...style, ...(overrideStyle as object)}} {...rest}>
+    {rest.children}
   </RNView>
 );
