@@ -1,6 +1,6 @@
 import {appSchema} from '@nozbe/watermelondb';
 
-export default appSchema({
+export const schema = appSchema({
   version: 1,
   tables: [
     // tableSchemas go here...

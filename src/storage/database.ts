@@ -1,7 +1,7 @@
 import {Database} from '@nozbe/watermelondb';
 import SQLiteAdapter from '@nozbe/watermelondb/adapters/sqlite';
 
-import schema from './schema';
+import {schema} from './schema';
 // import Post from './Post' // ⬅️ You'll import your Models here
 
 // First, create the adapter to the underlying database:
