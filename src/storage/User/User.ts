@@ -6,24 +6,25 @@ import {
   relation,
   text,
 } from '@nozbe/watermelondb/decorators';
-import {Tables, Columns} from '../schema';
+import {tables} from '../tables';
+import {columns} from '../columns';
 import type {Relation} from '@nozbe/watermelondb';
 import type {Associations} from '@nozbe/watermelondb/Model';
 import type {Type} from './Type';
 import type {Status} from './Status';
 
-const OwnColumns = Columns.User;
+const ownColumns = columns.user;
 
 export class User extends Model {
-  static table = Tables.User;
+  static table = tables.user;
   static associations: Associations = {
-    [Tables.Type]: {type: 'belongs_to', key: OwnColumns.typeId},
-    [Tables.Status]: {type: 'belongs_to', key: OwnColumns.statusId},
+    [tables.type]: {type: 'belongs_to', key: ownColumns.typeId},
+    [tables.status]: {type: 'belongs_to', key: ownColumns.statusId},
   };
-  @text(OwnColumns.email) email!: string;
-  @field(OwnColumns.password) password!: string;
-  @relation(Tables.Type, OwnColumns.typeId) type!: Relation<Type>;
-  @relation(Tables.Status, OwnColumns.statusId) status!: Relation<Status>;
-  @readonly @date(OwnColumns.createdAt) createdAt!: Date;
-  @readonly @date(OwnColumns.updatedAt) updatedAt!: Date;
+  @text(ownColumns.email) email!: string;
+  @field(ownColumns.password) password!: string;
+  @relation(tables.type, ownColumns.typeId) type!: Relation<Type>;
+  @relation(tables.status, ownColumns.statusId) status!: Relation<Status>;
+  @readonly @date(ownColumns.createdAt) createdAt!: Date;
+  @readonly @date(ownColumns.updatedAt) updatedAt!: Date;
 }
