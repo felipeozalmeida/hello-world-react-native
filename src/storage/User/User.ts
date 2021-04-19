@@ -6,21 +6,24 @@ import {
   relation,
   text,
 } from '@nozbe/watermelondb/decorators';
+import {Tables, Columns} from '../schema';
 import type {Relation} from '@nozbe/watermelondb';
 import type {Associations} from '@nozbe/watermelondb/Model';
 import type {Type} from './Type';
 import type {Status} from './Status';
 
+const OwnColumns = Columns.User;
+
 export class User extends Model {
-  static table = 'Users';
+  static table = Tables.User;
   static associations: Associations = {
-    types: {type: 'belongs_to', key: 'type_id'},
-    statuses: {type: 'belongs_to', key: 'status_id'},
+    [Tables.Type]: {type: 'belongs_to', key: OwnColumns.typeId},
+    [Tables.Status]: {type: 'belongs_to', key: OwnColumns.statusId},
   };
-  @text('email') email!: string;
-  @field('password') password!: string;
-  @relation('types', 'type_id') type!: Relation<Type>;
-  @relation('statuses', 'status_id') status!: Relation<Status>;
-  @readonly @date('created_at') createdAt!: Date;
-  @readonly @date('updated_at') updatedAt!: Date;
+  @text(OwnColumns.email) email!: string;
+  @field(OwnColumns.password) password!: string;
+  @relation(Tables.Type, OwnColumns.typeId) type!: Relation<Type>;
+  @relation(Tables.Status, OwnColumns.statusId) status!: Relation<Status>;
+  @readonly @date(OwnColumns.createdAt) createdAt!: Date;
+  @readonly @date(OwnColumns.updatedAt) updatedAt!: Date;
 }
