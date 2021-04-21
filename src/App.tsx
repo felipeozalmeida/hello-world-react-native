@@ -12,7 +12,6 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import type {StackNavigationOptions} from '@react-navigation/stack';
 
-import {initDb} from './storage';
 import {services} from './plugins';
 import {ServiceProvider} from './contexts';
 import {Stack} from './navigators';
@@ -23,8 +22,6 @@ import {
   UserListScreen,
 } from './screens';
 import type {UserDetailScreenNavigationProps} from './navigators';
-
-initDb();
 
 const homeScreenOptions = {title: 'Hello World'};
 const userListScreenOptions = {title: 'Users'};
