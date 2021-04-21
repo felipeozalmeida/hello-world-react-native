@@ -1,4 +1,4 @@
 export * from './User';
 export * from './database';
 export * from './schema';
-export * from './db-seeder';
+export * from './seed-database';

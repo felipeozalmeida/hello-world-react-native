@@ -3,7 +3,7 @@ import SQLiteAdapter from '@nozbe/watermelondb/adapters/sqlite';
 
 import {schema} from './schema';
 import {seeds} from './seeds';
-import {seedDatabase} from './db-seeder';
+import {seedDatabase} from './seed-database';
 
 // import Post from './Post' // ⬅️ You'll import your Models here
 import {Status} from './User/Status';
