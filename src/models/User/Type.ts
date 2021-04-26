@@ -1,4 +1,4 @@
 export type Type = {
-  id: number;
+  id: string;
   name: string;
 };

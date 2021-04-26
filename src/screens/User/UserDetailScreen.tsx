@@ -46,8 +46,8 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
   const [user, setUser] = useState<UserWithoutId | User>({
     email: '',
     password: '',
-    status: 0,
-    type: 0,
+    status: '',
+    type: '',
   });
 
   const refs = {

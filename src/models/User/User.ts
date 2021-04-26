@@ -1,11 +1,11 @@
 export type UserWithoutId = {
   email: string;
   password: string;
-  type: number;
-  status: number;
+  type: string;
+  status: string;
 };
 
-export type User = UserWithoutId & {id: number};
+export type User = UserWithoutId & {id: string};
 
 export const canCreateUser = (user: UserWithoutId): boolean => {
   return Boolean(user.email && user.password && user.type && user.status);
