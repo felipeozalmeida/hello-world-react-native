@@ -1,6 +1,6 @@
-import {NetworkSpeed} from '../../utils';
-import type {Status} from '../../models';
-import type {StatusService} from './StatusService';
+import {NetworkSpeed} from '../../../utils';
+import type {Status} from '../../../models';
+import type {StatusService} from '../typings';
 
 export const createMockStatusService = (): StatusService => {
   let items: Status[] = [
