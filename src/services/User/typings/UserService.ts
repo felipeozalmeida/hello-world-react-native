@@ -1,4 +1,4 @@
-import type {User, UserWithoutId} from '../../models';
+import type {User, UserWithoutId} from '../../../models';
 
 export type UserService = {
   get: (id: User['id']) => Promise<User>;
