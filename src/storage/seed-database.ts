@@ -3,13 +3,13 @@ import {seeds} from './seeds';
 
 (async () => {
   // Use the following during development
-  await database.action(async () => {
-    // Erase locale database
-    await database.unsafeResetDatabase();
+  // await database.action(async () => {
+  //   // Erase locale database
+  //   await database.unsafeResetDatabase();
 
-    // Clear local seed version
-    await database.adapter.removeLocal('seed_version');
-  });
+  //   // Clear local seed version
+  //   await database.adapter.removeLocal('seed_version');
+  // });
 
   // Get local seed version
   const localSeedVersion = await database.adapter.getLocal('seed_version');
