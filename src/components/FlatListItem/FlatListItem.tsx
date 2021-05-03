@@ -3,7 +3,8 @@ import {
   Pressable as RNPressable,
   StyleSheet as RNStyleSheet,
 } from 'react-native';
-import {Card, Text} from '..';
+import {Text} from '../Text/Text';
+import {Card} from '../Card/Card';
 
 type Props = {
   id: number;

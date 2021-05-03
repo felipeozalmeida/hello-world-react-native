@@ -1,6 +1,6 @@
-import {NetworkSpeed} from '../../utils';
-import type {User, UserWithoutId} from '../../models';
-import type {UserService} from './UserService';
+import {NetworkSpeed} from '../../../utils';
+import type {User, UserWithoutId} from '../../../models';
+import type {UserService} from '../typings';
 
 export const createMockUserService = (): UserService => {
   let autoIncrement = 3;

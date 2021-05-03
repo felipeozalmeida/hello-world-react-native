@@ -85,6 +85,14 @@ export const UserListScreen = (props: Props) => {
     );
   }
 
+  if (!users.length) {
+    return (
+      <Screen>
+        <Text>Wow, such empty. Try to create a user and return here!</Text>
+      </Screen>
+    );
+  }
+
   return (
     <Screen>
       <FlatList

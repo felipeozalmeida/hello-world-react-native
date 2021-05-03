@@ -1,11 +1,11 @@
-import {NetworkSpeed} from '../../utils';
-import type {Type} from '../../models';
-import type {TypeService} from './TypeService';
+import {NetworkSpeed} from '../../../utils';
+import type {Type} from '../../../models';
+import type {TypeService} from '../typings';
 
 export const createMockTypeService = (): TypeService => {
   let items: Type[] = [
-    {id: 1, name: 'Admin'},
-    {id: 2, name: 'Standard'},
+    {id: 'a', name: 'Admin'},
+    {id: 'b', name: 'Standard'},
   ];
 
   return {

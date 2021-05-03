@@ -12,6 +12,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import type {StackNavigationOptions} from '@react-navigation/stack';
 
+import './storage/seed-database';
 import {services} from './plugins';
 import {ServiceProvider} from './contexts';
 import {Stack} from './navigators';
