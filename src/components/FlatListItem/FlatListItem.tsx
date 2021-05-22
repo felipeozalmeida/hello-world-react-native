@@ -7,7 +7,7 @@ import {Text} from '../Text/Text';
 import {Card} from '../Card/Card';
 
 type Props = {
-  id: number;
+  id: any;
   text: string;
   onPress: (id: Props['id']) => void;
   onDelete: (id: Props['id']) => void;

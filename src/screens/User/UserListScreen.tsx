@@ -35,7 +35,7 @@ export const UserListScreen = (props: Props) => {
         const fetchedUsers = await userService.list();
         setUsers(fetchedUsers);
         Alert.alert('Success', 'User deleted successfully.');
-      } catch (e: any) {
+      } catch (e) {
         Alert.alert('Error', 'User could not be deleted.');
       } finally {
         setLoading(false);
@@ -61,7 +61,7 @@ export const UserListScreen = (props: Props) => {
       try {
         const fetchedUsers = await userService.list();
         setUsers(fetchedUsers);
-      } catch (e: any) {
+      } catch (e) {
         setError(e.message);
       } finally {
         setLoading(false);

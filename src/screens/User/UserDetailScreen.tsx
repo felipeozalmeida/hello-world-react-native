@@ -105,7 +105,7 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
           const initialUser = await userService.get(route.params?.userId);
           setUser(initialUser);
         }
-      } catch (e: any) {
+      } catch (e) {
         setError(e.message);
       } finally {
         setLoading(false);
