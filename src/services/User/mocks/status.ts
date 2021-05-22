@@ -4,8 +4,8 @@ import type {StatusService} from '../typings';
 
 export const createMockStatusService = (): StatusService => {
   let items: Status[] = [
-    {id: 'a', name: 'Active'},
-    {id: 'b', name: 'Deactivated'},
+    {id: '1', name: 'Active'},
+    {id: '2', name: 'Deactivated'},
   ];
 
   return {

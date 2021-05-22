@@ -5,8 +5,20 @@ import type {UserService} from '../typings';
 export const createMockUserService = (): UserService => {
   let autoIncrement = 3;
   let items: User[] = [
-    {id: 1, email: 'test@gmail.com', password: '1234', type: 1, status: 1},
-    {id: 2, email: 'test@outlook.com', password: '1234', type: 2, status: 2},
+    {
+      id: '1',
+      email: 'test@gmail.com',
+      password: '1234',
+      type: '1',
+      status: '1',
+    },
+    {
+      id: '2',
+      email: 'test@outlook.com',
+      password: '1234',
+      type: '2',
+      status: '2',
+    },
   ];
 
   return {
@@ -26,7 +38,7 @@ export const createMockUserService = (): UserService => {
     async create(user: UserWithoutId): Promise<User> {
       return new Promise((resolve) => {
         setTimeout(() => {
-          const newUser: User = {...user, id: autoIncrement};
+          const newUser: User = {...user, id: String(autoIncrement)};
           items.push(newUser);
           autoIncrement++;
           resolve(newUser);
