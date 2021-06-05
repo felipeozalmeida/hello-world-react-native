@@ -19,4 +19,10 @@ export const columns = {
     createdAt: columnName('created_at'),
     updatedAt: columnName('updated_at'),
   },
+  person: {
+    name: columnName('name'),
+    birthday: columnName('birthday'),
+    createdAt: columnName('created_at'),
+    updatedAt: columnName('updated_at'),
+  },
 };

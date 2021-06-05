@@ -7,6 +7,7 @@ import {schema} from './schema';
 import {Status} from './User/Status';
 import {Type} from './User/Type';
 import {User} from './User/User';
+import {Person} from './Person/Person';
 
 // First, create the adapter to the underlying database:
 const adapter = new SQLiteAdapter({schema});
@@ -19,6 +20,7 @@ export const database = new Database({
     Status,
     Type,
     User,
+    Person,
   ],
   actionsEnabled: true,
 });

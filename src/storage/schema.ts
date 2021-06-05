@@ -33,5 +33,14 @@ export const schema = appSchema({
         {name: columns.user.updatedAt, type: 'number'},
       ],
     }),
+    tableSchema({
+      name: tables.person,
+      columns: [
+        {name: columns.person.name, type: 'string'},
+        {name: columns.person.birthday, type: 'string'},
+        {name: columns.person.createdAt, type: 'number'},
+        {name: columns.person.updatedAt, type: 'number'},
+      ],
+    }),
   ],
 });
