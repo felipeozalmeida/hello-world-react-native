@@ -5,6 +5,8 @@ export type RootStackParamList = {
   Home: undefined;
   UserDetail: {userId: string} | undefined;
   UserList: undefined;
+  PersonDetail: {personId: string} | undefined;
+  PersonList: undefined;
 };
 
 export type HomeScreenNavigationProps = StackScreenProps<
@@ -20,6 +22,16 @@ export type UserDetailScreenNavigationProps = StackScreenProps<
 export type UserListScreenNavigationProps = StackScreenProps<
   RootStackParamList,
   'UserList'
+>;
+
+export type PersonDetailScreenNavigationProps = StackScreenProps<
+  RootStackParamList,
+  'PersonDetail'
+>;
+
+export type PersonListScreenNavigationProps = StackScreenProps<
+  RootStackParamList,
+  'PersonList'
 >;
 
 export const Stack = createStackNavigator<RootStackParamList>();
