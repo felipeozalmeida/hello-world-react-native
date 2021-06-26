@@ -13,6 +13,8 @@ an option among a list of options (like what select does in HTML).
 It uses the full-featured WatermelonDB offline database solution for storing records. Also, I've built a custom seeding mechanism for unattended
 database updates.
 
+Inspired by Ignite CLI's boilerplate project.
+
 Tested in Android only. For learning purposes.
 
 ## Quick start
@@ -74,3 +76,4 @@ Tested in Android only. For learning purposes.
 1. [Official React Native Picker Select Docs](https://github.com/lawnstarter/react-native-picker-select)
 1. [Official React Navigation Docs](https://reactnavigation.org/docs/getting-started)
 1. [Official WatermelonDB Docs](https://nozbe.github.io/WatermelonDB)
+1. [Official Ignite CLI Repository](https://github.com/infinitered/ignite)
