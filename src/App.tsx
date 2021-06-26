@@ -21,11 +21,13 @@ import {
   UserDetailScreen,
   UserDetailScreenTitle,
   UserListScreen,
+  PersonListScreen,
 } from './screens';
 import type {UserDetailScreenNavigationProps} from './navigators';
 
 const homeScreenOptions = {title: 'Hello World'};
 const userListScreenOptions = {title: 'Users'};
+const personListScreenOptions = {title: 'People'};
 
 const getUserDetailScreenOptions = ({
   route,
@@ -54,6 +56,11 @@ export const App = () => (
           name="UserList"
           component={UserListScreen}
           options={userListScreenOptions}
+        />
+        <Stack.Screen
+          name="PersonList"
+          component={PersonListScreen}
+          options={personListScreenOptions}
         />
       </Stack.Navigator>
     </NavigationContainer>
