@@ -21,9 +21,14 @@ import {
   UserDetailScreen,
   UserDetailScreenTitle,
   UserListScreen,
+  PersonDetailScreen,
+  PersonDetailScreenTitle,
   PersonListScreen,
 } from './screens';
-import type {UserDetailScreenNavigationProps} from './navigators';
+import type {
+  UserDetailScreenNavigationProps,
+  PersonDetailScreenNavigationProps,
+} from './navigators';
 
 const homeScreenOptions = {title: 'Hello World'};
 const userListScreenOptions = {title: 'Users'};
@@ -36,6 +41,15 @@ const getUserDetailScreenOptions = ({
     return {title: UserDetailScreenTitle.Default};
   }
   return {title: UserDetailScreenTitle.New};
+};
+
+const getPersonDetailScreenOptions = ({
+  route,
+}: PersonDetailScreenNavigationProps): StackNavigationOptions => {
+  if (route.params?.personId) {
+    return {title: PersonDetailScreenTitle.Default};
+  }
+  return {title: PersonDetailScreenTitle.New};
 };
 
 export const App = () => (
@@ -56,6 +70,11 @@ export const App = () => (
           name="UserList"
           component={UserListScreen}
           options={userListScreenOptions}
+        />
+        <Stack.Screen
+          name="PersonDetail"
+          component={PersonDetailScreen}
+          options={getPersonDetailScreenOptions}
         />
         <Stack.Screen
           name="PersonList"
