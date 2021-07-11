@@ -29,6 +29,7 @@ export const schema = appSchema({
         {name: columns.user.password, type: 'string'},
         {name: columns.user.typeId, type: 'string'},
         {name: columns.user.statusId, type: 'string'},
+        {name: columns.user.personId, type: 'string'},
         {name: columns.user.createdAt, type: 'number'},
         {name: columns.user.updatedAt, type: 'number'},
       ],

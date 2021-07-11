@@ -13,6 +13,7 @@ export const createUserService = (): UserService => ({
         password: entry.password,
         type: String(entry.type.id),
         status: String(entry.status.id),
+        person: String(entry.person.id),
       }));
     }
     return [];
@@ -25,6 +26,7 @@ export const createUserService = (): UserService => ({
       password: entry.password,
       type: String(entry.type.id),
       status: String(entry.status.id),
+      person: String(entry.person.id),
     };
     return formattedEntry;
   },
@@ -36,6 +38,7 @@ export const createUserService = (): UserService => ({
         newEntry.password = user.password;
         newEntry.type.id = String(user.type);
         newEntry.status.id = String(user.status);
+        newEntry.person.id = String(user.person);
       });
     });
     const formattedEntry: User = {
@@ -44,6 +47,7 @@ export const createUserService = (): UserService => ({
       password: entry.password,
       type: String(entry.type.id),
       status: String(entry.status.id),
+      person: String(entry.person.id),
     };
     return formattedEntry;
   },
@@ -56,6 +60,7 @@ export const createUserService = (): UserService => ({
         updatedEntry.password = user.password;
         updatedEntry.type.id = String(user.type);
         updatedEntry.status.id = String(user.status);
+        updatedEntry.person.id = String(user.person);
       });
     });
     const formattedEntry: User = {
@@ -64,6 +69,7 @@ export const createUserService = (): UserService => ({
       password: entry.password,
       type: String(entry.type.id),
       status: String(entry.status.id),
+      person: String(entry.person.id),
     };
     return formattedEntry;
   },

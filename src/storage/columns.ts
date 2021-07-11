@@ -16,6 +16,7 @@ export const columns = {
     password: columnName('password'),
     typeId: columnName('type_id'),
     statusId: columnName('status_id'),
+    personId: columnName('person_id'),
     createdAt: columnName('created_at'),
     updatedAt: columnName('updated_at'),
   },

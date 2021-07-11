@@ -11,6 +11,7 @@ export const createMockUserService = (): UserService => {
       password: '1234',
       type: '1',
       status: '1',
+      person: '1',
     },
     {
       id: '2',
@@ -18,6 +19,7 @@ export const createMockUserService = (): UserService => {
       password: '1234',
       type: '2',
       status: '2',
+      person: '2',
     },
   ];
 

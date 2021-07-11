@@ -13,7 +13,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import type {StackNavigationOptions} from '@react-navigation/stack';
 
 import './storage/seed-database';
-import {mockServices} from './plugins';
+import {services} from './plugins';
 import {ServiceProvider} from './contexts';
 import {Stack} from './navigators';
 import {
@@ -53,7 +53,7 @@ const getPersonDetailScreenOptions = ({
 };
 
 export const App = () => (
-  <ServiceProvider value={mockServices}>
+  <ServiceProvider value={services}>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen

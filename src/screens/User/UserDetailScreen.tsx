@@ -1,7 +1,7 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {Button, Alert} from 'react-native';
 
-import {Status, Type, User, UserWithoutId} from '../../models';
+import {Status, Type, Person, User, UserWithoutId} from '../../models';
 import type {UserDetailScreenNavigationProps} from '../../navigators';
 import type {PickerItem, TextInputRef} from '../../components';
 import {canCreateUser, canUpdateUser} from '../../models';
@@ -31,23 +31,36 @@ const formatTypeItems = (types: Type[]): PickerItem[] =>
     value: t.id,
   }));
 
+const formatPersonItems = (people: Person[]): PickerItem[] =>
+  people.map<PickerItem>((t) => ({
+    label: t.name,
+    value: t.id,
+  }));
+
 export enum UserDetailScreenTitle {
   Default = 'User Detail',
   New = 'Create User',
 }
 
 export const UserDetailScreen = ({navigation, route}: Props) => {
-  const {statusService, typeService, userService} = useServices();
+  const {
+    statusService,
+    typeService,
+    personService,
+    userService,
+  } = useServices();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [statusItems, setStatusItems] = useState<PickerItem[]>([]);
   const [typeItems, setTypeItems] = useState<PickerItem[]>([]);
+  const [personItems, setPersonItems] = useState<PickerItem[]>([]);
   const [user, setUser] = useState<UserWithoutId | User>({
     email: '',
     password: '',
     status: '',
     type: '',
+    person: '',
   });
 
   const refs = {
@@ -98,8 +111,10 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
       try {
         const statuses = await statusService.list();
         const types = await typeService.list();
+        const people = await personService.list();
         setStatusItems(formatStatusItems(statuses));
         setTypeItems(formatTypeItems(types));
+        setPersonItems(formatPersonItems(people));
 
         if (route.params?.userId) {
           const initialUser = await userService.get(route.params?.userId);
@@ -111,7 +126,7 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
         setLoading(false);
       }
     })();
-  }, [route.params, statusService, typeService, userService]);
+  }, [route.params, statusService, typeService, personService, userService]);
 
   if (loading) {
     return (
@@ -190,13 +205,23 @@ export const UserDetailScreen = ({navigation, route}: Props) => {
             }
           />
         </InputRow>
-        <InputRow last>
+        <InputRow>
           <Text variant="label">Status</Text>
           <Picker
             value={user.status}
             items={statusItems}
             onValueChange={(newStatus) =>
               setUser((oldUser) => ({...oldUser, status: newStatus}))
+            }
+          />
+        </InputRow>
+        <InputRow last>
+          <Text variant="label">Owner</Text>
+          <Picker
+            value={user.person}
+            items={personItems}
+            onValueChange={(newPerson) =>
+              setUser((oldUser) => ({...oldUser, person: newPerson}))
             }
           />
         </InputRow>
