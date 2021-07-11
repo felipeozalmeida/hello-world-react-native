@@ -13,9 +13,9 @@ an option among a list of options (like what select does in HTML).
 It uses the full-featured WatermelonDB offline database solution for storing records. Also, I've built a custom seeding mechanism for unattended
 database updates.
 
-Inspired by Ignite CLI's boilerplate project.
-
 Tested in Android only. For learning purposes.
+
+Inspired by Ignite CLI's boilerplate.
 
 ## Quick start
 
@@ -72,8 +72,16 @@ Tested in Android only. For learning purposes.
 
 ## References
 
-1. [Official React Native Docs](https://reactnative.dev/docs/0.63/getting-started)
-1. [Official React Native Picker Select Docs](https://github.com/lawnstarter/react-native-picker-select)
-1. [Official React Navigation Docs](https://reactnavigation.org/docs/getting-started)
-1. [Official WatermelonDB Docs](https://nozbe.github.io/WatermelonDB)
-1. [Official Ignite CLI Repository](https://github.com/infinitered/ignite)
+1. [React Native Docs](https://reactnative.dev/docs/0.63/getting-started)
+1. [React Native Picker Select Docs](https://github.com/lawnstarter/react-native-picker-select)
+1. [React Navigation Docs](https://reactnavigation.org/docs/getting-started)
+1. [WatermelonDB Docs](https://nozbe.github.io/WatermelonDB)
+1. [Ignite CLI Docs](https://github.com/infinitered/ignite)
+
+
+## See more
+
+1. [React Roadmap](https://roadmap.sh/react)
+1. [Red Shift (from the creators of Ignite CLI)](https://shift.infinite.red/)
+1. [React Native at Airbnb](https://medium.com/airbnb-engineering/react-native-at-airbnb-f95aa460be1c)
+1. [React Native at Nubank](https://building.nubank.com.br/why-we-think-flutter-will-help-us-scale-mobile-development-at-nubank/)
